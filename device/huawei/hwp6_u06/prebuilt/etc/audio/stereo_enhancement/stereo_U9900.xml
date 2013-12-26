@@ -1,0 +1,12 @@
+<StereoEnhancement>
+    <Version>4.1</Version>
+    <Enable>true</Enable>
+    <HPEhancementEnable>true</HPEhancementEnable>
+    <HPGain>0.8</HPGain>
+    <MicDistance>162</MicDistance>
+    <LeftChannelDelay>0</LeftChannelDelay>
+    <RightChannelDelay>0</RightChannelDelay>
+    <MicChannelExchange>false</MicChannelExchange>
+    <LeftChannelGain>1</LeftChannelGain>      <!--unused-->
+    <RightChannelGain>1</RightChannelGain>    <!--unused-->
+</StereoEnhancement>

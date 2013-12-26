@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2009, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<!-- These resources are around just to allow their values to be customized
+     for different hardware and product builds. -->
+<resources>
+
+    <bool name="config_sf_limitedAlpha">false</bool>
+
+    <bool name="config_sf_slowBlur">true</bool>
+
+    <bool name="config_useMasterVolume">true</bool>
+
+    <bool name="config_useVolumeKeySounds">true</bool>
+
+    <bool name="config_sendAudioBecomingNoisy">true</bool>
+
+    <string-array translatable="false" name="networkAttributes">
+        <item>"wifi,1,1,1,-1,true"</item>
+        <item>"mobile,0,0,0,-1,true"</item>
+        <item>"mobile_mms,2,0,2,60000,true"</item>
+        <item>"mobile_supl,3,0,2,60000,true"</item>
+        <item>mobile_dun,4,0,3,60000,true</item>
+        <item>"mobile_hipri,5,0,3,60000,true"</item>
+        <item>mobile_bluetooth,7,7,1,-1,true</item>
+        <item>mobile_dm,34,0,3,60000,true</item>
+        <item>mobile_wap,35,0,3,600000,true</item>
+        <item>mobile_net,36,0,3,60000,true</item>
+        <item>mobile_cmmail,37,0,3,60000,true</item>
+        <item>wifi_p2p,13,1,0,-1,true</item>
+    </string-array>
+
+
+    <integer-array translatable="false" name="config_protectedNetworks">
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </integer-array>
+
+    <!-- This string array should be overridden by the device to present a list of radio
+         attributes.  This is used by the connectivity manager to decide which networks can coexist
+         based on the hardware -->
+    <!-- An Array of "[ConnectivityManager connectionType],
+                      [# simultaneous connection types]"  -->
+    <string-array translatable="false" name="radioAttributes">
+        <item>1,1</item>
+        <item>0,1</item>
+        <item>7,1</item>
+    </string-array>
+
+    <!-- Set of NetworkInfo.getType() that reflect data usage. -->
+    <integer-array translatable="false" name="config_data_usage_network_types">
+        <item>0</item> <!-- TYPE_MOBILE -->
+        <item>2</item> <!-- TYPE_MOBILE_MMS -->
+        <item>3</item> <!-- TYPE_MOBILE_SUPL -->
+        <item>4</item> <!-- TYPE_MOBILE_DUN -->
+        <item>5</item> <!-- TYPE_MOBILE_HIPRI -->
+        <item>10</item> <!-- TYPE_MOBILE_FOTA -->
+        <item>11</item> <!-- TYPE_MOBILE_IMS -->
+        <item>12</item> <!-- TYPE_MOBILE_CBS -->
+    </integer-array>
+
+    <string-array translatable="false" name="config_tether_usb_regexs">
+        <item>rndis0</item>
+    </string-array>
+
+    <string-array translatable="false" name="config_tether_wifi_regexs">
+        <item>wlan1</item>
+    </string-array>
+
+    <string-array translatable="false" name="config_tether_bluetooth_regexs">
+        <item>bt-pan</item>
+    </string-array>
+
+    <integer-array translatable="false" name="config_tether_upstream_types">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>7</item>
+    </integer-array>
+
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+
+    <bool name="config_showNavigationBar">true</bool>
+
+    <bool name="config_automatic_brightness_available">true</bool>
+
+    <bool name="config_batterySdCardAccessibility">true</bool>
+
+    <bool name="config_enableLockScreenRotation">true</bool>
+ 
+    <integer-array name="config_autoBrightnessLevels">
+        <item>3</item>
+        <item>6</item>
+        <item>12</item>
+        <item>19</item>
+        <item>25</item>
+        <item>50</item>
+        <item>100</item>
+        <item>150</item>
+        <item>320</item>
+        <item>480</item>
+        <item>960</item>
+        <item>1240</item>
+        <item>1520</item>
+        <item>2050</item>
+    </integer-array>
+
+    <!-- Array of output values for LCD backlight corresponding to the LUX values
+        in the config_autoBrightnessLevels array. This array should have size one greater
+        than the size of the config_autoBrightnessLevels array.
+    -->
+    <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>1</item>    <!--   0 -   3 -->
+        <item>11</item>   <!--   3 -   6 -->
+        <item>22</item>   <!--   6 -  12 -->
+        <item>38</item>   <!--  12 -  19 -->
+        <item>47</item>   <!--  19 -  25 -->
+        <item>63</item>   <!--  25 -  50 -->
+        <item>85</item>   <!--  50 - 100 -->
+        <item>94</item>   <!-- 100 - 150 -->
+        <item>110</item>  <!-- 150 - 320 -->
+        <item>126</item>  <!-- 320 - 480 -->
+        <item>162</item>  <!-- 480 - 960 -->
+        <item>196</item>  <!-- 960 - 1240 -->
+        <item>250</item>  <!-- 1240 - 1520 -->
+        <item>255</item>  <!-- 1520+ -->
+    </integer-array>
+
+    <!-- Array of output values for button backlight corresponding to the LUX values
+        in the config_autoBrightnessLevels array. This array should have size one greater
+        than the size of the config_autoBrightnessLevels array.
+    -->
+    <integer-array name="config_autoBrightnessButtonBacklightValues">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <!-- Array of output values for keyboard backlight corresponding to the LUX values
+        in the config_autoBrightnessLevels array. This array should have size one greater
+        than the size of the config_autoBrightnessLevels array.
+        i9300 has no keyboard so all values are zero.
+    -->
+    <integer-array name="config_autoBrightnessKeyboardBacklightValues">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <!-- Minimum screen brightness allowed by the power manager. -->
+    <integer name="config_screenBrightnessDim">70</integer>
+
+    <bool name="config_voice_capable">true</bool>
+
+    <bool name="config_sms_capable">true</bool>
+
+    <bool name="config_bluetooth_sco_off_call">true</bool>
+
+    <bool name="config_sip_wifi_only">false</bool>
+
+    <!-- Enables built-in SIP phone capability -->
+    <bool name="config_built_in_sip_phone">true</bool>
+
+    <integer name="config_downloadDataDirSize">200</integer>
+
+    <!-- Max number of downloads allowed to proceed concurrently -->
+    <integer name="config_MaxConcurrentDownloadsAllowed">7</integer>
+
+   <bool name="config_dreamsSupported">true</bool>
+
+   <integer name="config_multiuserMaximumUsers">9</integer>
+
+    <!-- reference volume index for music stream to limit headphone volume and display warning -->
+    <integer name="config_safe_media_volume_index">15</integer>
+
+    <bool name="config_camera_sound_forced">true</bool>
+
+    <bool name="config_hasRotationLockSwitch">true</bool>
+
+    <!--string name="config_legacyUmsLunFile">/sys/class/android_usb/f_mass_storage/lun/file</string>
+
+    Hardware 'face' keys present on the device, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+             1 - Home
+             2 - Back
+             4 - Menu
+             8 - Assistant (search)
+            16 - App switch
+         For example, a device with Home, Back and Menu keys would set this
+         config to 7. -->
+    <integer name="config_deviceHardwareKeys">7</integer>
+
+</resources>

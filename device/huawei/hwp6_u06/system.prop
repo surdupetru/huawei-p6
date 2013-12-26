@@ -1,0 +1,15 @@
+#
+# system.prop for P6-U06
+#
+
+rild.libpath=/system/lib/libxgold-ril.so
+rild.libargs=-d /dev/ttyACM0
+rild.cfgfile=/system/etc/ril_xgold_radio.cfg
+audioril.lib=libhuawei-audio-ril.so
+ro.ril.ecclist=112,911,#911,*911
+
+ro.confg.hw_systemversion=P6-U06V100R001C17B118_SYSTEM
+dalvik.vm.dexopt-data-only=1
+
+ro.sf.lcd_density=320
+hw.lcd.density=320

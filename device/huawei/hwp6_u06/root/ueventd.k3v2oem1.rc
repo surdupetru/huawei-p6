@@ -1,0 +1,25 @@
+
+# for Sensor HAL
+#/dev/lsm303dlh_acc        0660   system     system
+#/dev/lsm303dlh_mag        0660   system     system
+/dev/akm8975_aot	  0660   system     system
+/dev/akm8975_dev	  0660   system     system
+
+# for Radio
+
+/dev/ttyUSB1              0777   root       root
+/dev/ttyUSB0              0777   root       root
+/dev/ttyACM0              0777   root       root
+/dev/ttyACM1              0777   root       root
+/dev/ttyACM2              0777   root       root
+/dev/ttyACM3              0777   root       root
+
+#DTS2012010701178    huohua   2012/01/07  modify for dynamic gamma begin
+# for LCD_tuning
+/dev/pri_lcd              0666   system     system
+#DTS2012010701178    huohua   2012/01/07  modify for dynamic gamma end
+
+#DTS2013022207802       y00215327      2013/02/22      add begin
+/dev/hci_tty              0666   root       root
+/dev/uhid                 0666   root       root
+#DTS2013022207802       y00215327      2013/02/22      add end

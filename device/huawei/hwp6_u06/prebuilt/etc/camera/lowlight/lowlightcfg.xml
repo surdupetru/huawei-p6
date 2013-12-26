@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Config>
+    <Normal>
+        <AlgoCoffs>
+            0 0 8 0 256 -1 -1 1 0 384 3 1
+        </AlgoCoffs>
+    </Normal>
+
+    <LowLight_1>
+        <SpotInNormal>
+            <Threshold>218</Threshold>
+            <Ratio>0.15</Ratio>
+            <AverageY>55</AverageY>
+        </SpotInNormal>
+
+        <SpotInLowLight>
+            <Threshold>232</Threshold>
+            <Ratio>0.20</Ratio>
+            <AverageY>80</AverageY>
+        </SpotInLowLight>
+
+        <ThresholdInNormal>
+            <ISO>2550</ISO>
+            <AverageY>35</AverageY>
+            <FPS>13</FPS>
+        </ThresholdInNormal>
+
+        <ThresholdInLowLight>
+            <ISO>1000</ISO>
+            <AverageY>100</AverageY>
+            <FPS>17</FPS>
+        </ThresholdInLowLight>
+
+        <AlgoCoffs>
+            0 0 8 0 128 -1 -1 1 0 512 3 1
+        </AlgoCoffs>
+    </LowLight_1>
+
+</Config>
