@@ -52,7 +52,7 @@ ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
 # Assert device
-TARGET_OTA_ASSERT_DEVICE := Ascend P6, hwp6-u06, hwp6_u06, P6-U06
+#TARGET_OTA_ASSERT_DEVICE := Ascend P6, hwp6-u06, hwp6_u06, P6-U06
 
 # Wifi
 USES_TI_MAC80211 := true

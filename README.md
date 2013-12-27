@@ -8,6 +8,8 @@ Huawei Ascend P6
 
 > sync my device tree ! ( git clone https://github.com/surdupetru/huawei-p6.git -b jb-4.2 )
 
+> replace /vendor/cm/vendorsetup.sh
+
 > make clobber
 
 > make clean
