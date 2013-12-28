@@ -25,10 +25,6 @@
 
     <bool name="config_sf_slowBlur">true</bool>
 
-    <bool name="config_useMasterVolume">true</bool>
-
-    <bool name="config_useVolumeKeySounds">true</bool>
-
     <bool name="config_sendAudioBecomingNoisy">true</bool>
 
     <string-array translatable="false" name="networkAttributes">
