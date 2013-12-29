@@ -63,6 +63,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/lib/libagnss.so:system/lib/libagnss.so \
     $(PATH_FILES)/lib/libassd.so:system/lib/libassd.so \
     $(PATH_FILES)/lib/libassist.so:system/lib/libassist.so \
+    $(PATH_FILES)/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
     $(PATH_FILES)/lib/libaudio-resampler.so:system/lib/libaudio-resampler.so \
     $(PATH_FILES)/lib/libbalong-ril.so:system/lib/libbalong-ril.so \
     $(PATH_FILES)/lib/libBMapApiEngine_v1_3_5.so:system/lib/libBMapApiEngine_v1_3_5.so \
@@ -92,6 +93,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/lib/lib_k3_omx_rv.so:system/lib/lib_k3_omx_rv.so \
     $(PATH_FILES)/lib/lib_k3_omx_vc1.so:system/lib/lib_k3_omx_vc1.so \
     $(PATH_FILES)/lib/lib_k3_omx_vp8.so:system/lib/lib_k3_omx_vp8.so \
+    $(PATH_FILES)/lib/libmedia.so:system/lib/libmedia.so \
     $(PATH_FILES)/lib/libMirrorAudioService.so:system/lib/libMirrorAudioService.so \
     $(PATH_FILES)/lib/libmirror_media.so:system/lib/libmirror_media.so \
     $(PATH_FILES)/lib/libmrc_cg_postprocess.so:system/lib/libmrc_cg_postprocess.so \
