@@ -38,16 +38,15 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/vendor/firmware/fmc_ch8_1893.3.bts:system/vendor/firmware/fmc_ch8_1893.3.bts \
     $(PATH_FILES)/vendor/firmware/fm_rx_ch8_1893.3.bts:system/vendor/firmware/fm_rx_ch8_1893.3.bts \
     $(PATH_FILES)/vendor/firmware/TIInit_12.8.32.bts:system/vendor/firmware/TIInit_12.8.32.bts \
-    $(PATH_FILES)/vendor/lib/libbt-vendor.so:system/vendor/lib/libbt-vendor.so \
     $(PATH_FILES)/lib/hw/camera.k3v2oem1.so:system/lib/hw/camera.k3v2oem1.so \
     $(PATH_FILES)/lib/hw/copybit.k3v2oem1.so:system/lib/hw/copybit.k3v2oem1.so \
     $(PATH_FILES)/lib/hw/gps.k3v2oem1.so:system/lib/hw/gps.k3v2oem1.so \
     $(PATH_FILES)/lib/hw/gralloc.k3v2oem1.so:system/lib/hw/gralloc.k3v2oem1.so \
     $(PATH_FILES)/lib/hw/hwcomposer.k3v2oem1.so:system/lib/hw/hwcomposer.k3v2oem1.so \
-    $(PATH_FILES)/lib/hw/lights.default.so:system/lib/hw/lights.hwp6-u06.so \
+    $(PATH_FILES)/lib/hw/lights.default.so:system/lib/hw/lights.hwp6_u06.so \
     $(PATH_FILES)/lib/hw/sensors.k3v2oem1.so:system/lib/hw/sensors.k3v2oem1.so \
-    $(PATH_FILES)/lib/hw/audio.primary.k3v2oem1.so:system/lib/hw/audio.primary.hwp6-u06.so \
-    $(PATH_FILES)/lib/hw/audio_policy.default.so:system/lib/hw/audio_policy.hwp6-u06.so \
+    $(PATH_FILES)/lib/hw/audio.primary.k3v2oem1.so:system/lib/hw/audio.primary.hwp6_u06.so \
+    $(PATH_FILES)/lib/hw/audio_policy.default.so:system/lib/hw/audio_policy.hwp6_u06.so \
     $(PATH_FILES)/lib/modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
     $(PATH_FILES)/lib/modules/compat.ko:system/lib/modules/compat.ko \
     $(PATH_FILES)/lib/modules/mac80211.ko:system/lib/modules/mac80211.ko \
@@ -79,6 +78,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/lib/libgnssutils.so:system/lib/libgnssutils.so \
     $(PATH_FILES)/lib/libgnuexif.so:system/lib/libgnuexif.so \
     $(PATH_FILES)/lib/libgui.so:system/lib/libgui.so \
+    $(PATH_FILES)/lib/libhelixplayer.so:system/lib/libhelixplayer.so \
     $(PATH_FILES)/lib/libhuawei-audio-ril.so:system/lib/libhuawei-audio-ril.so \
     $(PATH_FILES)/lib/libimageinfo.so:system/lib/libimageinfo.so \
     $(PATH_FILES)/lib/libisdb_omxcore.so:system/lib/libisdb_omxcore.so \
@@ -111,6 +111,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
     $(PATH_FILES)/lib/libsurfaceflinger_client.so:system/lib/libsurfaceflinger_client.so \
     $(PATH_FILES)/lib/libtfa9887.so:system/lib/libtfa9887.so \
+    $(PATH_FILES)/lib/libtrack.so:system/lib/libtrack.so \
     $(PATH_FILES)/lib/libui.so:system/lib/libui.so \
     $(PATH_FILES)/lib/libvpp.so:system/lib/libvpp.so \
     $(PATH_FILES)/lib/libwvm.so:system/lib/libwvm.so \
@@ -123,7 +124,6 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/bin/devproxy:system/bin/devproxy \
     $(PATH_FILES)/bin/geomagneticd:system/bin/geomagneticd \
     $(PATH_FILES)/bin/glgps:system/bin/glgps \
-    $(PATH_FILES)/bin/hostapd:system/bin/hostapd \
     $(PATH_FILES)/bin/hwd:system/bin/hwd \
     $(PATH_FILES)/bin/hw_modem_service:system/bin/hw_modem_service \
     $(PATH_FILES)/bin/hwnff:system/bin/hwnff \
@@ -150,9 +150,8 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/bin/testpcsc:system/bin/testpcsc \
     $(PATH_FILES)/bin/testpcsc_sendapdu:system/bin/testpcsc_sendapdu \
     $(PATH_FILES)/bin/test_server:system/bin/test_server \
-    $(PATH_FILES)/bin/uim-sysfs:system/bin/uim-sysfs \
     $(PATH_FILES)/bin/updatemodem:system/bin/updatemodem \
     $(PATH_FILES)/bin/vold:system/bin/vold \
     $(PATH_FILES)/xbin/acceleratord:system/xbin/acceleratord \
     $(PATH_FILES)/isp.bin:system/isp.bin \
-    $(PATH_FILES)/ons.bin:system/ons.bin \
+    $(PATH_FILES)/ons.bin:system/ons.bin

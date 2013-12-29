@@ -390,15 +390,16 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     libaudioutils
 
-#PRODUCT_PACKAGES += \
-#    FmRadio
-
 # Wifi
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/etc/wifi/wpa_supplicant.conf:/system/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/prebuilt/etc/wifi/p2p_supplicant.conf:/system/etc/wifi/p2p_supplicant.conf \
-    $(LOCAL_PATH)/prebuilt/etc/wifi/hostapd.conf:/system/etc/wifi/hostapd.conf
+    $(LOCAL_PATH)/prebuilt/etc/wifi/p2p_supplicant.conf:/system/etc/wifi/p2p_supplicant.conf
 
+PRODUCT_PACKAGES += \
+    lib_driver_cmd_wl12xx \
+    wlan_loader \
+    wlan_cu \
+    wpa_supplicant.conf \
+    hostapd.conf
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -419,10 +420,19 @@ PRODUCT_PACKAGES += \
     Stk \
     Torch
 
-# Bluetooth
-#PRODUCT_PACKAGES += \
-#    uim-sysfs \
-#    libbt-vendor
+# Bluetooth & FmRadio
+PRODUCT_PACKAGES += \
+    uim-sysfs \
+    libbt-vendor \
+    bt_sco_app \
+    kfmapp     \
+    BluetoothSCOApp \
+    FmRxApp \
+    FmTxApp \
+    FmService \
+    libfmradio \
+    fmradioif \
+    com.ti.fm.fmradioif.xml
 
 # General
 PRODUCT_PROPERTY_OVERRIDES := \
