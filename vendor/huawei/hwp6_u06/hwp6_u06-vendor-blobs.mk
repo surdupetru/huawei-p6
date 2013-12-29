@@ -61,9 +61,11 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/lib/egl/libGLESv2_VIVANTE.so:system/lib/egl/libGLESv2_VIVANTE.so \
     $(PATH_FILES)/lib/lib_8290.so:system/lib/lib_8290.so \
     $(PATH_FILES)/lib/libagnss.so:system/lib/libagnss.so \
+    $(PATH_FILES)/lib/libapollo.so:system/lib/libapollo.so \
     $(PATH_FILES)/lib/libassd.so:system/lib/libassd.so \
     $(PATH_FILES)/lib/libassist.so:system/lib/libassist.so \
     $(PATH_FILES)/lib/libaudioflinger.so:system/lib/libaudioflinger.so \
+    $(PATH_FILES)/lib/libaudiohelper.so:system/lib/libaudiohelper.so \
     $(PATH_FILES)/lib/libaudio-resampler.so:system/lib/libaudio-resampler.so \
     $(PATH_FILES)/lib/libbalong-ril.so:system/lib/libbalong-ril.so \
     $(PATH_FILES)/lib/libBMapApiEngine_v1_3_5.so:system/lib/libBMapApiEngine_v1_3_5.so \
