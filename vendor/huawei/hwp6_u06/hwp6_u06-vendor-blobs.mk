@@ -71,6 +71,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/lib/libBMapApiEngine_v1_3_5.so:system/lib/libBMapApiEngine_v1_3_5.so \
     $(PATH_FILES)/lib/libcamera_core.so:system/lib/libcamera_core.so \
     $(PATH_FILES)/lib/libcamera_scalado.so:system/lib/libcamera_scalado.so \
+    $(PATH_FILES)/lib/libclientlogger.so:system/lib/libclientlogger.so \
     $(PATH_FILES)/lib/libdevproxy.so:system/lib/libdevproxy.so \
     $(PATH_FILES)/lib/libdolbyaudioeffectnativeservice.so:system/lib/libdolbyaudioeffectnativeservice.so \
     $(PATH_FILES)/lib/libdolbymobileaudioeffect_jni.so:system/lib/libdolbymobileaudioeffect_jni.so \
@@ -112,6 +113,17 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/lib/libsprd-ril.so:system/lib/libsprd-ril.so \
     $(PATH_FILES)/lib/libstagefrighthw.so:system/lib/libstagefrighthw.so \
     $(PATH_FILES)/lib/libstagefright_wfd.so:system/lib/libstagefright_wfd.so \
+    $(PATH_FILES)/lib/libsupl10client.so:system/lib/libsupl10client.so \
+    $(PATH_FILES)/lib/libsupl20client.so:system/lib/libsupl20client.so \
+    $(PATH_FILES)/lib/libsupl20comon.so:system/lib/libsupl20comon.so \
+    $(PATH_FILES)/lib/libsupl20if.so:system/lib/libsupl20if.so \
+    $(PATH_FILES)/lib/libsupl20oasn1comn.so:system/lib/libsupl20oasn1comn.so \
+    $(PATH_FILES)/lib/libsupl20oasn1lpp.so:system/lib/libsupl20oasn1lpp.so \
+    $(PATH_FILES)/lib/libsupl20oasn1rrc.so:system/lib/libsupl20oasn1rrc.so \
+    $(PATH_FILES)/lib/libsupl20oasn1rrlp.so:system/lib/libsupl20oasn1rrlp.so \
+    $(PATH_FILES)/lib/libsupl20oasn1supl1.so:system/lib/libsupl20oasn1supl1.so \
+    $(PATH_FILES)/lib/libsupl20oasn1supl2.so:system/lib/libsupl20oasn1supl2.so \
+    $(PATH_FILES)/lib/libsupl20oasn1tia.so:system/lib/libsupl20oasn1tia.so \
     $(PATH_FILES)/lib/libsurfaceflinger.so:system/lib/libsurfaceflinger.so \
     $(PATH_FILES)/lib/libsurfaceflinger_client.so:system/lib/libsurfaceflinger_client.so \
     $(PATH_FILES)/lib/libtfa9887.so:system/lib/libtfa9887.so \

@@ -29,6 +29,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/root/ueventd.k3v2oem1.rc:recovery/root/ueventd.k3v2oem1.rc \
     $(LOCAL_PATH)/root/fstab.k3v2oem1:recovery/root/fstab.k3v2oem1
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/gnss/config/cacerts.bks:system/etc/gnss/config/cacerts.bks \
+    $(LOCAL_PATH)/prebuilt/etc/gnss/config/Connect_Config.txt:system/etc/gnss/config/Connect_Config.txt \
+    $(LOCAL_PATH)/prebuilt/etc/gnss/config/DM_SUPL_Config.xml:system/etc/gnss/config/DM_SUPL_Config.xml \
+    $(LOCAL_PATH)/prebuilt/etc/gnss/config/dproxy.conf:system/etc/gnss/config/dproxy.conf \
+    $(LOCAL_PATH)/prebuilt/etc/gnss/config/SUPLConfigParams.xml:system/etc/gnss/config/SUPLConfigParams.xml \
+    $(LOCAL_PATH)/prebuilt/etc/gnss/patch/dproxy.patch:system/etc/gnss/patch/dproxy.patch \
+    $(LOCAL_PATH)/prebuilt/etc/gnss/RXN/license.key:system/etc/gnss/RXN/license.key \
+    $(LOCAL_PATH)/prebuilt/etc/gnss/RXN/MSLConfig.txt:system/etc/gnss/RXN/MSLConfig.txt \
+    $(LOCAL_PATH)/prebuilt/etc/gnss/RXN/security.key:system/etc/gnss/RXN/security.key
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -256,7 +266,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/camera_resolutions.cfg:system/etc/camera_resolutions.cfg \
     $(LOCAL_PATH)/prebuilt/etc/es305.bin:system/etc/es305.bin \
     $(LOCAL_PATH)/prebuilt/etc/es305_uart.bin:system/etc/es305_uart.bin \
-    $(LOCAL_PATH)/prebuilt/etc/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/prebuilt/etc/gpsconfig.xml:system/etc/gpsconfig.xml \
     $(LOCAL_PATH)/prebuilt/etc/install-recovery.sh:system/etc/install-recovery.sh \
     $(LOCAL_PATH)/prebuilt/etc/k3_omx.cfg:system/etc/k3_omx.cfg \
@@ -266,8 +275,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/prebuilt/etc/asound_ADL.dat:system/etc/asound_ADL.dat \
-    $(LOCAL_PATH)/prebuilt/etc/batt_fw.bin:system/etc/batt_fw.bin
+    $(LOCAL_PATH)/prebuilt/etc/asound_ADL.dat:system/etc/asound_ADL.dat
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/camera/davinci/device.config:system/etc/camera/davinci/device.config \

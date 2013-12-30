@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<supl_dm_config>
+ <App_ID>001</App_ID>
+ <ext_supl_protocol_ver>1</ext_supl_protocol_ver>
+ <PrefConRef>default</PrefConRef>
+ <!--H-SLP server Configuration -->
+ <hslp>
+   <port>7276</port>
+   <ipaddress>74.125.31.192</ipaddress>
+   <fqdn>supl.google.com</fqdn>
+   <addr_type>fqdn</addr_type>
+ </hslp>
+</supl_dm_config>
