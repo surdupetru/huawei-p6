@@ -162,6 +162,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/bin/sdcard:system/bin/sdcard \
     $(PATH_FILES)/bin/ser2soc:system/bin/ser2soc \
     $(PATH_FILES)/bin/sprd_download:system/bin/sprd_download \
+    $(PATH_FILES)/bin/supl20clientd:system/bin/supl20clientd \
     $(PATH_FILES)/bin/surfaceflinger:system/bin/surfaceflinger \
     $(PATH_FILES)/bin/testpcsc:system/bin/testpcsc \
     $(PATH_FILES)/bin/testpcsc_sendapdu:system/bin/testpcsc_sendapdu \
