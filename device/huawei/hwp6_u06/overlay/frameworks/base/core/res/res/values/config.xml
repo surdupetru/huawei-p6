@@ -32,22 +32,12 @@
         <item>"mobile,0,0,0,-1,true"</item>
         <item>"mobile_mms,2,0,2,60000,true"</item>
         <item>"mobile_supl,3,0,2,60000,true"</item>
-        <item>mobile_dun,4,0,3,60000,true</item>
+        <item>"mobile_dun,4,0,3,60000,true"</item>
         <item>"mobile_hipri,5,0,3,60000,true"</item>
-        <item>mobile_bluetooth,7,7,1,-1,true</item>
-        <item>mobile_dm,34,0,3,60000,true</item>
-        <item>mobile_wap,35,0,3,600000,true</item>
-        <item>mobile_net,36,0,3,60000,true</item>
-        <item>mobile_cmmail,37,0,3,60000,true</item>
-        <item>wifi_p2p,13,1,0,-1,true</item>
+        <item>"mobile_bluetooth,7,7,1,-1,true"</item>
+        <item>"wifi_p2p,13,1,0,-1,true"</item>
     </string-array>
 
-
-    <integer-array translatable="false" name="config_protectedNetworks">
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-    </integer-array>
 
     <!-- This string array should be overridden by the device to present a list of radio
          attributes.  This is used by the connectivity manager to decide which networks can coexist
@@ -55,9 +45,10 @@
     <!-- An Array of "[ConnectivityManager connectionType],
                       [# simultaneous connection types]"  -->
     <string-array translatable="false" name="radioAttributes">
-        <item>1,1</item>
-        <item>0,1</item>
-        <item>7,1</item>
+        <item>"1,1"</item>
+        <item>"0,1"</item>
+        <item>"2,1"</item>
+        <item>"7,1"</item>
     </string-array>
 
     <!-- Set of NetworkInfo.getType() that reflect data usage. -->
@@ -73,15 +64,15 @@
     </integer-array>
 
     <string-array translatable="false" name="config_tether_usb_regexs">
-        <item>rndis0</item>
+        <item>"rndis0"</item>
     </string-array>
 
     <string-array translatable="false" name="config_tether_wifi_regexs">
-        <item>wlan1</item>
+        <item>"wlan1"</item>
     </string-array>
 
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
-        <item>bt-pan</item>
+        <item>"bt-pan"</item>
     </string-array>
 
     <integer-array translatable="false" name="config_tether_upstream_types">
@@ -189,8 +180,6 @@
         <item>0</item>
     </integer-array>
 
-    <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">70</integer>
 
     <bool name="config_voice_capable">true</bool>
 
@@ -210,7 +199,7 @@
 
    <bool name="config_dreamsSupported">true</bool>
 
-   <integer name="config_multiuserMaximumUsers">9</integer>
+   <integer name="config_multiuserMaximumUsers">8</integer>
 
     <!-- reference volume index for music stream to limit headphone volume and display warning -->
     <integer name="config_safe_media_volume_index">15</integer>
