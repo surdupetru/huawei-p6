@@ -3,11 +3,7 @@ BOARD_VENDOR := Huawei
 USE_CAMERA_STUB := false
 
 # Audio
-#BOARD_USES_GENERIC_AUDIO := false
 TARGET_PROVIDES_LIBAUDIO := true
-#BOARD_USES_AUDIO_LEGACY := true
-#USE_PROPRIETARY_AUDIO_EXTENSIONS := true
-#COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB
 
 # inherit from the proprietary version
 include vendor/huawei/hwp6_u06/BoardConfigVendor.mk
@@ -42,9 +38,6 @@ BOARD_VENDOR_PLATFORM := k3v2oem1
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
-# Assert device
-#TARGET_OTA_ASSERT_DEVICE := Ascend P6, hwp6-u06, hwp6_u06, P6-U06
-
 # Wifi
 USES_TI_MAC80211 := true
 ifdef USES_TI_MAC80211
@@ -66,13 +59,14 @@ endif
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_WPAN_DEVICE :=true
-#BOARD_HAVE_BLUETOOTH_BCM := true
-#BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/huawei/hwp6_u06/bluetooth
 
 TARGET_PREBUILT_KERNEL := device/huawei/hwp6_u06/kernel
 #TARGET_KERNEL_SOURCE := kernel/huawei/hwp6_u06
 #TARGET_KERNEL_CONFIG := hisi_k3v2oem1_defconfig
+
+# Camera
+#COMMON_GLOBAL_CFLAGS += -DQCOM_BSP_CAMERA_ABI_HACK
 
 # adb has root
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0

@@ -68,7 +68,7 @@
     </string-array>
 
     <string-array translatable="false" name="config_tether_wifi_regexs">
-        <item>"wlan1"</item>
+        <item>"wlan0"</item>
     </string-array>
 
     <string-array translatable="false" name="config_tether_bluetooth_regexs">
@@ -81,6 +81,17 @@
         <item>5</item>
         <item>7</item>
     </integer-array>
+
+    <!-- The default iface on which to monitor data use -->
+    <string name="config_datause_iface">rmnet0</string>
+
+    <string-array translatable="false" name="config_serialPorts">
+        <item>/dev/ttyACM0</item>
+    </string-array>
+
+    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
+
+    <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
 
     <bool name="config_unplugTurnsOnScreen">true</bool>
 

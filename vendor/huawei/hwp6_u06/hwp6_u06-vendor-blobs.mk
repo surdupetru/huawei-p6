@@ -140,6 +140,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/bin/devproxy:system/bin/devproxy \
     $(PATH_FILES)/bin/geomagneticd:system/bin/geomagneticd \
     $(PATH_FILES)/bin/glgps:system/bin/glgps \
+    $(PATH_FILES)/bin/hostapd:system/bin/hostapd \
     $(PATH_FILES)/bin/hwd:system/bin/hwd \
     $(PATH_FILES)/bin/hw_modem_service:system/bin/hw_modem_service \
     $(PATH_FILES)/bin/hwnff:system/bin/hwnff \
