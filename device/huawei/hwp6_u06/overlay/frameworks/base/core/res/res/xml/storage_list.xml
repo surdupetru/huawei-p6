@@ -33,19 +33,17 @@
 -->
 
 <StorageList xmlns:android="http://schemas.android.com/apk/res/android">
-    <storage android:mountPoint="/storage/sdcard0"
+    <storage android:mountPoint="/storage/emulated/0"
                  android:storageDescription="@string/storage_internal"
                  android:primary="true"
 		 android:emulated="true"
-                 android:mtpReserve="3000" />
-    <storage android:mountPoint="/storage/sdcard1"
+                 android:mtpReserve="100" />
+    <storage android:mountPoint="/mnt/ext_sdcard"
                  android:storageDescription="@string/storage_sd_card"
                  android:primary="false"
-                 android:removable="true"
-                 android:maxFileSize="4096" /> 
+                 android:removable="true" />
     <storage android:mountPoint="/mnt/usb" 
 		 android:storageDescription="@string/storage_usb"
-                 android:primary="false"
 		 android:removable="true" />
 </StorageList>
 

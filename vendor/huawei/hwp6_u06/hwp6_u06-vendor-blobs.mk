@@ -159,7 +159,6 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/bin/rild:system/bin/rild \
     $(PATH_FILES)/bin/RXN_IntApp:system/bin/RXN_IntApp \
     $(PATH_FILES)/bin/scremotell:system/bin/scremotell \
-    $(PATH_FILES)/bin/sdcard:system/bin/sdcard \
     $(PATH_FILES)/bin/ser2soc:system/bin/ser2soc \
     $(PATH_FILES)/bin/sprd_download:system/bin/sprd_download \
     $(PATH_FILES)/bin/supl20clientd:system/bin/supl20clientd \
