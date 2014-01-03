@@ -25,3 +25,5 @@ Huawei Ascend P6
 > brunch hwp6_u06
 
 ........
+
+> keep /META-INF , boot.img & /cust from my woring build ! http://forum.xda-developers.com/showthread.php?t=2585783
