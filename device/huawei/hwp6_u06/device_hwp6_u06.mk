@@ -421,6 +421,7 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers
 
 PRODUCT_PACKAGES += \
+    Torch \
     Stk
 
 # Bluetooth & FmRadio
