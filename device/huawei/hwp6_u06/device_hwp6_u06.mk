@@ -257,13 +257,11 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/bin/adbd:system/bin/adbd \
     $(LOCAL_PATH)/prebuilt/etc/camera_orientation.cfg:system/etc/camera_orientation.cfg \
     $(LOCAL_PATH)/prebuilt/etc/camera_resolutions.cfg:system/etc/camera_resolutions.cfg \
     $(LOCAL_PATH)/prebuilt/etc/es305.bin:system/etc/es305.bin \
     $(LOCAL_PATH)/prebuilt/etc/es305_uart.bin:system/etc/es305_uart.bin \
     $(LOCAL_PATH)/prebuilt/etc/gpsconfig.xml:system/etc/gpsconfig.xml \
-    $(LOCAL_PATH)/prebuilt/etc/install-recovery.sh:system/etc/install-recovery.sh \
     $(LOCAL_PATH)/prebuilt/etc/k3_omx.cfg:system/etc/k3_omx.cfg \
     $(LOCAL_PATH)/prebuilt/etc/ril_balong_radio.cfg:/system/etc/ril_balong_radio.cfg \
     $(LOCAL_PATH)/prebuilt/etc/ril_xgold_radio.cfg:/system/etc/ril_xgold_radio.cfg \
