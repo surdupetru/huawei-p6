@@ -1,0 +1,6 @@
+
+menu "HIk3 support drivers"
+source "drivers/hik3/g1dec/Kconfig"
+source "drivers/hik3/8290enc/Kconfig"
+endmenu
+

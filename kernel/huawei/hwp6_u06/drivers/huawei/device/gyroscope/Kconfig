@@ -1,0 +1,30 @@
+#
+# gyroscope driver configuration
+#
+menuconfig INPUT_GYROSCOPE
+	bool "gyroscope"
+	select HUAWEI_SENSORS_INPUT_INFO
+	default n
+	help
+		Say Y here, and a list of supported gyroscopes will be displayed.
+		This option doesn't affect the kernel.
+
+
+
+if INPUT_GYROSCOPE
+
+config HUAWEI_FEATURE_GYROSCOPE_L3G4200DH
+	tristate "L3G4200DH"
+	default y
+	help
+		Say Y here if you have the ST L3G4200DH gyroscope.
+
+config GYROSCOPE_DEBUG
+	bool "gyroscope debugging messages"
+	default n
+	help
+		Say Y here if you want the gyroscope to produce a bunch of debug
+		messages to the system log.  Select this if you are having a
+		problem with gyroscope and want to see more of what is going on.
+
+endif

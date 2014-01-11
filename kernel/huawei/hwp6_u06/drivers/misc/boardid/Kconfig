@@ -1,0 +1,5 @@
+config BOARDID_DEV
+    tristate "Boardid Virtual Device Driver"
+	default y
+	help
+		Say Y to enable Boardid Virtual Device Support

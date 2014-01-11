@@ -1,0 +1,5 @@
+config SPK_5VBOOST
+    tristate "5V BOOST SPK Driver"
+	default y
+	help
+		Say Y to enable 5V BOOST Speaker

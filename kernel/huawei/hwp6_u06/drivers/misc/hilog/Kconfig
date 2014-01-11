@@ -1,0 +1,7 @@
+menu "K3 log support"
+
+config K3_LOG
+    tristate "Support for hisi k3 log"
+    help
+		Support for Hisi K3 log
+endmenu

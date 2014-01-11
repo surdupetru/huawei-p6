@@ -1,0 +1,15 @@
+#
+# HARDWARE SEC ENG configuration
+#
+
+config SECENGDEV
+	tristate "Hardware sec eng Core support"
+	default y
+	---help---
+	  Hardware secengdev infrastructure.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called seceng.  This provides a device
+	  that's usually called /dev/secengdev.
+
+	  If unsure, say Y.

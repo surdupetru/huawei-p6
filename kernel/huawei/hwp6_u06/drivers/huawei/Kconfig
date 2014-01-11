@@ -1,0 +1,4 @@
+menu "huawei linux device driver support package"
+
+source "drivers/huawei/device/Kconfig"
+endmenu

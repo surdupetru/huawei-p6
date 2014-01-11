@@ -1,0 +1,28 @@
+#
+# Thermal Temp sensor configuration
+#
+
+config K3V2_CPU_TEMP_SENSOR
+	bool "K3V2 On-Die temp sensor support"
+	depends on THERMAL_FRAMEWORK
+	help
+	  get k3v2 cpu temp sensor for the K3V2 thermal platform.
+
+config K3V2_AP_SENSOR
+	bool "K3V2 AP temp sensor support"
+	depends on THERMAL_FRAMEWORK
+	help
+	  get ap temp sensor for the K3V2 thermal platform.
+
+config K3V2_SIM_SENSOR
+	bool "K3V2 SIM temp sensor support"
+	depends on THERMAL_FRAMEWORK
+	help
+	  get sim temp sensor for the K3V2 thermal platform.
+
+config THERMAL_CONFIG
+	bool "K3V2 thermal config support"
+	depends on THERMAL_FRAMEWORK
+	default y
+	help
+	  get thermal config for the K3V2 thermal platform.

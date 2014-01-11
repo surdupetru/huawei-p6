@@ -1,0 +1,8 @@
+menu "g1 decode support"
+
+config G1_DEC
+    depends on ANDROID_PMEM
+    tristate "Support for hisi k3 video dec processor"
+    help
+        The decode device provides decode function for H.264/MPEG4/VC1
+endmenu

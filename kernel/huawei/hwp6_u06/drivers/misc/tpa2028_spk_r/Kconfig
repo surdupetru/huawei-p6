@@ -1,0 +1,5 @@
+config TPA2028_SPK_R
+    tristate "TPA2028 Driver For Speaker Right"
+	default y
+	help
+		Say Y to enable TPA2028 PA Support For Speaker Right

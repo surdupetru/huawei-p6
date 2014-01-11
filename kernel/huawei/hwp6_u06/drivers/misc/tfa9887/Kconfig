@@ -1,0 +1,5 @@
+config TFA9887
+	tristate "tfa9887 i2c driver"
+	default y
+	help
+		Say Y to enable tfa9887 i2c driver support

@@ -1,0 +1,10 @@
+#
+# Input core configuration
+#
+config SYNAPTICS_TOUCH_KEY
+
+    default y
+	bool "Synaptics touchkey"
+	help
+	  Say Y here if you want to support the Synaptics RMI4 bus.
+

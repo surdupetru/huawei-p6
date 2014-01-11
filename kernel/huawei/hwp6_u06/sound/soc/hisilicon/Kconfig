@@ -1,0 +1,14 @@
+menu "SoC Audio support for HI3620"
+
+config SND_SOC_PCM_HI3620
+	tristate "SoC Audio support for HI3620"
+	help
+		Enable this option for HI3620 I2S audio support.
+
+config SND_HI3620_HI6421
+	tristate "Hi3620-Hi6421 sound support"
+	help
+		This option enables sound support for Hi3620-Hi6421
+
+endmenu
+

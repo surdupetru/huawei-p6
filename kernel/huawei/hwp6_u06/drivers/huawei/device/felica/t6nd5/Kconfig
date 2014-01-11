@@ -1,0 +1,4 @@
+config HUAWEI_FEATURE_FELICA_T6ND5
+	tristate "T6ND5 FELICA driver"
+	default n
+

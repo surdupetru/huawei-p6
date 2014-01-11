@@ -1,0 +1,28 @@
+menuconfig SWITCH
+	tristate "Switch class support"
+	help
+	  Say Y here to enable switch class support. This allows
+	  monitoring switches by userspace via sysfs and uevent.
+
+if SWITCH
+
+config SWITCH_GPIO
+	tristate "GPIO Swith support"
+	depends on GENERIC_GPIO
+	help
+	  Say Y here to enable GPIO based switch support.
+
+endif # SWITCH
+
+menuconfig SWITCH_USB
+        tristate "Switch usb support"
+        help
+          Say Y here to enable switch usb class support. This allows
+          monitoring usb switches by userspace via sysfs.
+
+config SWITCH_USB_CLS
+	tristate "USB Switch class support"
+	depends on GENERIC_GPIO
+	help
+	  Say Y here to enable USB based switch class support.
+

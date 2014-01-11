@@ -1,0 +1,8 @@
+menu "8290 encode support"
+
+config 8290_ENC
+    depends on ANDROID_PMEM
+    tristate "Support for hisi k3 video encode processor"
+    help
+        The encode device provides decode function for H.264/JPEG
+endmenu

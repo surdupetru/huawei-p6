@@ -1,0 +1,143 @@
+#
+# USB Dual Role (OTG-ready) Controller Drivers
+# for silicon based on Synopsys designs
+#
+
+comment "Enable Host or Gadget support to see Synopsys options"
+	depends on !USB && USB_GADGET=n
+
+# (S)HDRC = (Synopsys) DWC
+config USB_SUSB_HDRC
+	depends on (USB || USB_GADGET)
+	depends on (ARM || (BF54x && !BF544) || (BF52x && !BF522 && !BF523))
+	select NOP_USB_XCEIV if (ARCH_DAVINCI || MACH_OMAP3EVM || BLACKFIN)
+	select TWL4030_USB if MACH_OMAP_3430SDP
+	select USB_OTG_UTILS
+	tristate 'Synopsys Highspeed Dual Role Controller '
+	help
+	  Say Y here if your system has a dual role high speed USB
+	  controller based on the Mentor Graphics silicon IP.  Then
+	  configure options to match your silicon and the board
+	  it's being used with, including the USB peripheral role,
+	  or the USB host role, or both.
+
+	  Texas Instruments familiies using this IP include DaVinci
+	  (35x, 644x ...), OMAP 243x, OMAP 3, and TUSB 6010.
+
+	  Analog Devices parts using this IP include Blackfin BF54x,
+	  BF525 and BF527.
+
+	  If you do not know what this is, please say N.
+
+	  To compile this driver as a module, choose M here; the
+	  module will be called "SUSB_hdrc".
+
+config USB_SUSB_SOC
+	boolean
+	depends on USB_SUSB_HDRC
+	default y if ARCH_DAVINCI
+	default y if ARCH_OMAP2430
+	default y if ARCH_OMAP3
+	default y if ARCH_OMAP4
+	default y if (BF54x && !BF544)
+	default y if (BF52x && !BF522 && !BF523)
+
+comment "DaVinci 35x and 644x USB support"
+	depends on USB_SUSB_HDRC && ARCH_DAVINCI_DMx
+
+comment "OMAP 243x high speed USB support"
+	depends on USB_SUSB_HDRC && ARCH_OMAP2430
+
+comment "OMAP 343x high speed USB support"
+	depends on USB_SUSB_HDRC && ARCH_OMAP3
+
+comment "OMAP 44xx high speed USB support"
+	depends on USB_SUSB_HDRC && ARCH_OMAP4
+
+comment "Blackfin high speed USB Support"
+	depends on USB_SUSB_HDRC && ((BF54x && !BF544) || (BF52x && !BF522 && !BF523))
+
+config USB_SYNOPSYS_USB_ANDROID
+	boolean "Synopsys usb device support"
+	depends on USB_SUSB_HDRC && !USB_SUSB_SOC
+	select NOP_USB_XCEIV
+
+choice
+	prompt "Driver Mode"
+	depends on USB_SUSB_HDRC
+	help
+	  Dual-Role devices can support both host and peripheral roles,
+	  as well as a the special "OTG Device" role which can switch
+	  between both roles as needed.
+
+# use USB_SUSB_HDRC_HCD not USB_SUSB_HOST to #ifdef host side support;
+# OTG needs both roles, not just USB_SUSB_HOST.
+config USB_SUSB_HOST
+	depends on USB
+	bool "USB Host"
+	help
+	  Say Y here if your system supports the USB host role.
+	  If it has a USB "A" (rectangular), "Mini-A" (uncommon),
+	  or "Mini-AB" connector, it supports the host role.
+	  (With a "Mini-AB" connector, you should enable USB OTG.)
+
+# use USB_GADGET_SUSB_HDRC not USB_SUSB_PERIPHERAL to #ifdef peripheral
+# side support ... OTG needs both roles
+config USB_SUSB_PERIPHERAL
+	depends on USB_GADGET
+	bool "USB Peripheral (gadget stack)"
+	select USB_GADGET_SUSB_HDRC
+	help
+	  Say Y here if your system supports the USB peripheral role.
+	  If it has a USB "B" (squarish), "Mini-B", or "Mini-AB"
+	  connector, it supports the peripheral role.
+	  (With a "Mini-AB" connector, you should enable USB OTG.)
+
+config USB_SUSB_OTG
+	depends on USB && USB_GADGET && PM && EXPERIMENTAL
+	bool "Both host and peripheral:  USB OTG (On The Go) Device"
+	select USB_GADGET_SUSB_HDRC
+	select USB_OTG
+	help
+	   The most notable feature of USB OTG is support for a
+	   "Dual-Role" device, which can act as either a device
+	   or a host.  The initial role choice can be changed
+	   later, when two dual-role devices talk to each other.
+
+	   At this writing, the OTG support in this driver is incomplete,
+	   omitting the mandatory HNP or SRP protocols.  However, some
+	   of the cable based role switching works.  (That is, grounding
+	   the ID pin switches the controller to host mode, while leaving
+	   it floating leaves it in peripheral mode.)
+
+	   Select this if your system has a Mini-AB connector, or
+	   to simplify certain kinds of configuration.
+
+	   To implement your OTG Targeted Peripherals List (TPL), enable
+	   USB_OTG_WHITELIST and update "drivers/usb/core/otg_whitelist.h"
+	   to match your requirements.
+
+config USB_OTG_GPIO_ID_DET
+	bool "Using GPIO_ID_DET to detect USB OTG device"
+	default y
+	help
+	   k3v2 chip USB phy need external GPIO to detect if it is a USB OTG device, 
+	   then call k3v2_otg_id_status_change() to power on/off USB otg phy.
+
+endchoice
+
+# enables host support (including with OTG)
+config USB_SUSB_HDRC_HCD
+	bool
+	depends on USB_SUSB_HDRC && (USB_SUSB_HOST || USB_SUSB_OTG)
+	select USB_OTG if USB_GADGET_SUSB_HDRC
+	default y
+
+config	USB_SUSB_DEBUG
+	depends on USB_SUSB_HDRC
+	bool "Enable debugging messages"
+	default n
+	help
+	  This enables SUSB debugging. To set the logging level use the debug
+	  module parameter. Starting at level 3, per-transfer (urb, usb_request,
+	  packet, or dma transfer) tracing may kick in.

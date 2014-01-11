@@ -1,0 +1,14 @@
+
+menu "GPS BCM 47511 Driver"   
+                                             
+comment "GPS BCM 47511 Driver"
+
+config GPS_BCM_47511
+        tristate "GPS Boardcom(47511) Driver Support"
+        default n
+        ---help---
+	  Say Y here to compile support for gps devices into the kernel 
+	  or say M to compile it as module.  
+endmenu
+
+

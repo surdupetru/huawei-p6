@@ -1,0 +1,4 @@
+header-y += config_boardids.h
+header-y += config_debugfs.h
+header-y += config_general_struct.h
+header-y += config_interface.h

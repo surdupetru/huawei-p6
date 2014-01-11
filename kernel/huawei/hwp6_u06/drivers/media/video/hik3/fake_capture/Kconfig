@@ -1,0 +1,13 @@
+if VIDEO_HIK3_CAMERA
+
+menu "Hisilicon K3 sock Camera/V4L2 Features support"
+config VIDEO_HIK3_FAKE_CAMERA
+	tristate "Hisilicon K3 FAKE CAMERA"
+	depends on VIDEO_HIK3_CAMERA
+	default m
+    ---help---
+        Hisilicon K3 Fake Camera driver.
+
+endmenu
+
+endif

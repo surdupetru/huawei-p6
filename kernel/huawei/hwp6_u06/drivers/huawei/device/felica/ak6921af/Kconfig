@@ -1,0 +1,4 @@
+config HUAWEI_FEATURE_FELICA_AK6921AF
+	tristate "AK6921AF FELICA driver"
+	default n
+

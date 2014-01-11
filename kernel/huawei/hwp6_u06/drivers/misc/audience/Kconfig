@@ -1,0 +1,5 @@
+config AUDIENCE
+	tristate "Audience Voice Processor Driver"
+	default y
+	help
+		Say Y to enable Audience Voice Processor Support

@@ -1,0 +1,40 @@
+#sensor unification for differ platform
+menu "huawei linux device driver support package"
+
+config HUAWEI_SENSORS_INPUT_INFO
+	bool "huawei sensor input info"
+	default n
+	help
+		get the huawei sensor input information.
+
+config HUAWEI_TOUCH_INPUT_INFO
+       bool "huawei touch input info"
+       default y
+       help
+                get the huawei touch input information.
+
+config TOUCHSCREEN_RMI4_SYNAPTICS_GENERIC
+       default n
+       bool "Synaptics RMI4 generic touchscreens"
+       depends on I2C
+       help
+         Say Y here to enable support Synaptics RMI4
+source "drivers/huawei/device/accelerometer/Kconfig"
+
+source "drivers/huawei/device/compass/Kconfig"
+
+source "drivers/huawei/device/light/Kconfig"
+
+source "drivers/huawei/device/gyroscope/Kconfig"
+
+source "drivers/huawei/device/touchscreen/Kconfig"
+
+source "drivers/huawei/device/touchscreen_D2/Kconfig"
+
+source "drivers/huawei/device/touchkey/Kconfig"
+
+source "drivers/huawei/device/felica/Kconfig"
+
+source "drivers/huawei/device/irda/Kconfig"
+
+endmenu

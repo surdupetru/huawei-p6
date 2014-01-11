@@ -1,0 +1,13 @@
+#test for V_GPU
+menuconfig V_GPU
+    bool "Vivante GPU Support"
+
+if V_GPU
+
+config G2D 
+    bool "G2D Support"
+
+config G3D 
+    bool "G3D Support"
+
+endif

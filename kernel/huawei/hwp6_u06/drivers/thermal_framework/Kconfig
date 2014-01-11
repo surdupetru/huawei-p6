@@ -1,0 +1,13 @@
+#
+# Generic Thermal Framework drivers configuration
+#
+
+menuconfig THERMAL_FRAMEWORK
+	bool "Thermal Framework support"
+	help
+	  This is a generic thermal framework which will be used as
+	  a central hub for sensors, governors to register and pass data to.
+
+source "drivers/thermal_framework/sensor/Kconfig"
+
+source "drivers/thermal_framework/governor/Kconfig"

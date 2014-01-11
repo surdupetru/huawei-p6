@@ -1,0 +1,1 @@
+69578cba7501b3096f6cb58ae744b4b7  /home/h00229629/opensource/B111/kernel/drivers/compat-wireless/config.mk

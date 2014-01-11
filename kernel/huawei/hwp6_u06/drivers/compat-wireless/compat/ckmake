@@ -1,0 +1,135 @@
+#!/bin/bash
+#
+# Copyright (C) 2012, Luis R. Rodriguez <mcgrof@frijolero.org>
+# Copyright (C) 2012, Hauke Mehrtens <hauke@hauke-m.de>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 2 as
+# published by the Free Software Foundation.
+#
+# You can use this to compile a module accross all installed kernels
+# found. This relies on distribution specific kernels, but can handle
+# your own custom list of target kernels. Log is setnt to LOG variable.
+
+# Pretty colors
+GREEN="\033[01;32m"
+YELLOW="\033[01;33m"
+NORMAL="\033[00m"
+BLUE="\033[34m"
+RED="\033[31m"
+PURPLE="\033[35m"
+CYAN="\033[36m"
+UNDERLINE="\033[02m"
+
+#export KCFLAGS="-Wno-unused-but-set-variable"
+KERNEL_DIR="/lib/modules"
+KLIBS=""
+LOG="ckmake.log"
+TIME="0"
+QUIET=""
+ARGS=""
+
+RET=""
+
+for i in $(find /lib/modules/ -type d -name \*generic\* | sort -n -r | grep -v -E '\-[[:alnum:]]{1,2}\-'); do
+	KLIBS="$KLIBS $i"
+done
+
+function tee_color_split()
+{
+	while read; do
+		echo -e $REPLY | ./scripts/skip-colors >> $LOG
+		echo -e $REPLY
+	done
+}
+
+function log_try_kernel()
+{
+	echo -en "Trying kernel ${BLUE}"
+	printf "%40s\t" "${1}"
+	echo -en "${NORMAL}"
+}
+
+function usage()
+{
+	echo -e "Usage: $0 [-t] <optional-target>"
+	echo -e "-t   will run: 'time ckmake; time ckmake' account for"
+	echo -e "     benchmark how long it takes to compile without ccache"
+	echo -e "     and a run after cache kicks in"
+	echo -e "-q   will ask ckmake to run make with -s to only output errors"
+	echo
+	echo -e "<optional-target>  is the arguments you want to pass to the"
+	echo -e "child make call that ckmake will use. For example if you have"
+	echo -e "a target 'linux' on your Makefile you can run 'cmake linux'"
+}
+
+for i in $@ ; do
+	case $1 in
+		"-h")
+			usage
+			exit 1
+			;;
+		"--help")
+			usage
+			exit 1
+			;;
+		"-t")
+			TIME="1"
+			shift
+			;;
+		"-s")
+			QUIET="-s"
+			shift
+			;;
+		*)
+			ARGS="${ARGS} $1"
+			shift
+	esac
+done
+
+function run_ckmake()
+{
+	for i in $KLIBS; do
+		KERNEL=$(basename $i)
+		DIR=${i}/build/
+		echo -e "--------------------------------------------" >> $LOG
+
+		if [[ ! -d $DIR ]]; then
+			continue
+		fi
+
+		# We cannot use tee_color_split() as bash read only spits
+		# out output when a newline comes in. We can modif IFS but
+		# I am still not sure how to do this properly.
+		log_try_kernel $KERNEL | ./scripts/skip-colors >> $LOG
+		log_try_kernel $KERNEL
+
+		ionice -c 3 nice -n 20 make $QUIET KLIB=$DIR KLIB_BUILD=$DIR -j6 -Wunused-but-set-variable $ARGS &>> $LOG
+		CUR_RET=$?
+
+		if [[ $RET = "" ]]; then
+			RET=$CUR_RET
+		fi
+
+		if [[ $CUR_RET -eq 0 ]]; then
+			echo -e "${GREEN}[OK]${NORMAL}" | tee_color_split
+		else
+			echo -e "${RED}[FAILED]${NORMAL}" | tee_color_split
+			RET=$CUR_RET
+		fi
+
+		nice make clean KLIB=$DIR KLIB_BUILD=$DIR 2>&1 >> $LOG
+	done
+}
+
+nice make clean 2>&1 > $LOG
+
+if [[ $TIME != "1" ]]; then
+	run_ckmake
+	exit $RET
+fi
+
+time $0 $QUIET $ARGS
+time $0 $QUIET $ARGS | egrep "real|user|sys"
+
+exit $RET

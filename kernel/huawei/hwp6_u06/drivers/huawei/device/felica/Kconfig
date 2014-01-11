@@ -1,0 +1,11 @@
+menuconfig HUAWEI_KERNEL_FELICA_DEVICES
+	bool "Near Field Communication (NFC) devices"
+	default n
+
+if HUAWEI_KERNEL_FELICA_DEVICES
+
+source "drivers/huawei/device/felica/ak6921af/Kconfig"
+
+source "drivers/huawei/device/felica/t6nd5/Kconfig"
+      
+endif # HUAWEI_KERNEL_FELICA_DEVICES

@@ -1,0 +1,10 @@
+#
+# Thermal governor driver config
+#
+
+config K3V2_TEMP_GOVERNOR
+	bool "k3v2 On Die thermal governor support"
+	depends on THERMAL_FRAMEWORK
+	help
+	  This is the governor for the k3v2 On-Die temperature sensor.
+

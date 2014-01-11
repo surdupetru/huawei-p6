@@ -1,0 +1,5 @@
+config TPA6132
+    tristate "TPA6132A2 Driver"
+	default y
+	help
+		Say Y to enable TPA6132A2 PA Support
