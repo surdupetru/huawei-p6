@@ -1,5 +1,5 @@
 import init.k3v2oem1.usb.rc
-import init.k3v2oem1.cpu.rc
+#import init.k3v2oem1.cpu.rc
 
 on early-init
     export SECONDARY_STORAGE /mnt/ext_sdcard
