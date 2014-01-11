@@ -13,15 +13,6 @@ LOCAL_PATH := device/huawei/hwp6_u06
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/root/ueventd.k3v2oem1.rc:root/ueventd.k3v2oem1.rc \
     $(LOCAL_PATH)/root/fstab.k3v2oem1:root/fstab.k3v2oem1 \
