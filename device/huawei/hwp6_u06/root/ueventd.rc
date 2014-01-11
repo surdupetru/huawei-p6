@@ -1,0 +1,165 @@
+/dev/null                 0666   root       root
+/dev/zero                 0666   root       root
+/dev/full                 0666   root       root
+/dev/ptmx                 0666   root       root
+/dev/tty                  0666   root       root
+/dev/random               0666   root       root
+/dev/urandom              0666   root       root
+/dev/ashmem               0666   root       root
+/dev/binder               0666   root       root
+
+##Modem device#
+/dev/ttyUSB15            0660   radio       radio
+/dev/ttyUSB14            0660   radio       radio
+/dev/ttyUSB13            0660   radio       radio
+/dev/ttyUSB12            0660   radio       radio
+/dev/ttyUSB11            0660   radio       radio
+/dev/ttyUSB10            0660   radio       radio
+/dev/ttyUSB9              0660   radio       radio
+/dev/ttyUSB8              0660   radio       radio
+/dev/ttyUSB7              0660   radio       radio
+/dev/ttyUSB6              0660   radio       radio
+/dev/ttyUSB5              0660   radio       radio
+/dev/ttyUSB4              0660   radio       radio
+/dev/ttyUSB3              0660   radio       radio
+/dev/ttyUSB2              0660   system      system
+/dev/ttyUSB1              0660   radio       radio
+/dev/ttyUSB0              0660   radio       radio
+/dev/ttyACM0              0666   root       root
+/dev/ttyACM1              0666   root       root
+/dev/ttyACM2              0666   root       root
+/dev/ttyACM3              0666   root       root
+/dev/mux1                0666   root       root
+/dev/mux2                0666   root       root
+/dev/mux3                0666   root       root
+/dev/mux4                0666   root       root
+/dev/mux5                0666   root       root
+/dev/mux6                0666   root       root
+/dev/mux7                0666   root       root
+/dev/mux8                0666   root       root
+# for CTS test:events can be read, others can't be read
+/dev/mux9                0660   radio      radio
+/dev/mux10               0660   radio      radio
+/dev/mux11               0660   radio      radio
+/dev/mux12               0660   radio      radio
+/dev/mux13               0660   radio      radio
+/dev/mux14               0660   radio      radio
+/dev/mux15               0660   radio      radio
+/dev/mux16               0660   radio      radio
+/dev/mux_balong1         0666   root       root
+/dev/mux_balong4         0640   system     system
+/dev/mux_mtk1            0666   root       root
+/dev/mux_mtk2            0666   root       root
+/dev/mux_mtk3            0666   root       root
+/dev/mux_mtk4            0666   root       root
+/dev/mux_mtk5            0666   root       root
+/dev/mux_mtk6            0666   root       root
+/dev/mux_mtk7            0666   root       root
+/dev/mux_mtk8            0666   root       root
+/dev/mux_qsc1            0666   root       root
+/dev/mux_qsc2            0666   root       root
+/dev/mux_qsc3            0666   root       root
+/dev/mux_qsc4            0666   root       root
+/dev/mux_qsc5            0666   root       root
+/dev/mux_qsc6            0666   root       root
+/dev/mux_qsc7            0666   root       root
+/dev/mux_qsc8            0666   root       root
+
+# logger should be world writable (for logging) but not readable
+/dev/log/*                0662   root       log
+/dev/log/events           0666   root       log
+/dev/smart/*              0662   system       system
+# the msm hw3d client device node is world writable/readable.
+/dev/msm_hw3dc            0666   root       root
+
+# gpu driver for adreno200 is globally accessible
+/dev/kgsl                 0666   root       root
+
+# kms driver for drm based gpu
+/dev/dri/*                0666   root       graphics
+
+# these should not be world writable
+/dev/diag                 0660   radio      radio
+/dev/diag_arm9            0660   radio      radio
+/dev/android_adb          0660   adb        adb
+/dev/android_adb_enable   0660   adb        adb
+/dev/ttyMSM0              0600   bluetooth  bluetooth
+/dev/uhid                 0660   system     net_bt_stack
+/dev/uinput               0660   system     net_bt_stack
+/dev/alarm                0664   system     radio
+/dev/tty0                 0660   root       system
+/dev/graphics/*           0660   root       graphics
+/dev/msm_hw3dm            0660   system     graphics
+/dev/input/*              0660   root       input
+/dev/eac                  0660   root       audio
+/dev/cam                  0660   root       camera
+/dev/pmem                 0660   system     graphics
+/dev/pmem_adsp*           0660   system     audio
+/dev/pmem_camera*         0660   system     camera
+/dev/oncrpc/*             0660   root       system
+/dev/adsp/*               0660   system     audio
+/dev/snd/*                0660   system     audio
+/dev/mt9t013              0660   system     system
+/dev/msm_camera/*         0660   system     system
+/dev/akm8976_daemon       0640   compass    system
+/dev/akm8976_aot          0640   compass    system
+/dev/akm8973_daemon       0640   compass    system
+/dev/akm8973_aot          0640   compass    system
+/dev/bma150               0640   compass    system
+/dev/cm3602               0640   compass    system
+/dev/akm8976_pffd         0640   compass    system
+/dev/lightsensor          0640   system     system
+/dev/msm_pcm_out*         0660   system     audio
+/dev/msm_pcm_in*          0660   system     audio
+/dev/msm_pcm_ctl*         0660   system     audio
+/dev/msm_snd*             0660   system     audio
+/dev/msm_mp3*             0660   system     audio
+/dev/audience_a1026*      0660   system     audio
+/dev/tpa2018d1*           0660   system     audio
+/dev/msm_audpre           0660   system     audio
+/dev/msm_audio_ctl        0660   system     audio
+/dev/htc-acoustic         0660   system     audio
+/dev/vdec                 0660   system     audio
+/dev/q6venc               0660   system     audio
+/dev/snd/dsp              0660   system     audio
+/dev/snd/dsp1             0660   system     audio
+/dev/snd/mixer            0660   system     audio
+/dev/smd0                 0640   radio      radio
+/dev/qmi                  0640   radio      radio
+/dev/qmi0                 0640   radio      radio
+/dev/qmi1                 0640   radio      radio
+/dev/qmi2                 0640   radio      radio
+/dev/bus/usb/*            0660   root       usb
+/dev/mtp_usb              0660   root       mtp
+/dev/usb_accessory        0660   root       usb
+/dev/tun                  0660   system     vpn
+
+# CDMA radio interface MUX
+/dev/ts0710mux0           0640   radio      radio
+/dev/ts0710mux2           0640   radio      radio
+/dev/ts0710mux3           0640   radio      radio
+/dev/ts0710mux4           0640   radio      radio
+/dev/ts0710mux5           0640   radio      radio
+/dev/ts0710mux6           0640   radio      radio
+/dev/ts0710mux7           0640   radio      radio
+/dev/ts0710mux8           0640   radio      radio
+/dev/ts0710mux9           0640   radio      radio
+/dev/ts0710mux1           0640   system     system
+/dev/ts0710mux15          0640   system     system
+/dev/ts0710mux16          0666   system     system
+/dev/ppp                  0660   radio      vpn
+
+# sysfs properties
+/sys/devices/virtual/input/input*   enable      0660  root   input
+/sys/devices/virtual/input/input*   poll_delay  0660  root   input
+/sys/devices/virtual/usb_composite/*   enable      0664  root   system
+# felica
+/dev/ttyAMA3              0600   felica     felica
+/dev/felica               0600   felica     felica
+/dev/felica_cen           0644   flock      system
+/dev/felica_int           0400   system     system
+/dev/felica_pon           0200   felica     felica
+/dev/felica_rfs           0444   felica     felica
+/dev/felica_rws           0644   system     system
+#nfc
+/dev/pn544                0660   root       nfc

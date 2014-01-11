@@ -18,7 +18,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/root/fstab.k3v2oem1:root/fstab.k3v2oem1 \
     $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
     $(LOCAL_PATH)/root/ueventd.k3v2oem1.rc:recovery/root/ueventd.k3v2oem1.rc \
-    $(LOCAL_PATH)/root/fstab.k3v2oem1:recovery/root/fstab.k3v2oem1
+    $(LOCAL_PATH)/root/fstab.k3v2oem1:recovery/root/fstab.k3v2oem1 \
+    $(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
+    $(LOCAL_PATH)/root/init.rc:root/init.rc \
+    $(LOCAL_PATH)/root/init.k3v2oem1.rc:root/init.k3v2oem1.rc \
+    $(LOCAL_PATH)/root/init.k3v2oem1.usb.rc:root/init.k3v2oem1.usb.rc \
+    $(LOCAL_PATH)/root/init.k3v2oem1.cpu.rc:root/init.k3v2oem1.cpu.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/etc/gnss/config/cacerts.bks:system/etc/gnss/config/cacerts.bks \

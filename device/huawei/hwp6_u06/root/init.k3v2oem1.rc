@@ -1,0 +1,525 @@
+import init.k3v2oem1.usb.rc
+import init.k3v2oem1.cpu.rc
+
+on early-init
+    export SECONDARY_STORAGE /mnt/ext_sdcard
+
+    mkdir /mnt/shell 0710 shell shell
+    mkdir /storage 0555 root sdcard_r
+    mkdir /mnt/shell/emulated 0700 shell shell
+    mkdir /storage/emulated 0555 root root
+
+    export EXTERNAL_STORAGE /storage/emulated/0
+    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
+    export EMULATED_STORAGE_TARGET /storage/emulated
+
+    symlink /storage/emulated/0 /sdcard
+    symlink /storage/emulated/0 /mnt/sdcard
+    symlink /storage/emulated/0 /storage/sdcard0
+    symlink /mnt/shell/emulated/0 /storage/emulated/0
+
+    mkdir /mnt/ext_sdcard 0000 system system
+    symlink /mnt/ext_sdcard /mnt/sdcard2
+    symlink /mnt/ext_sdcard /storage/sdcard1
+
+#*
+on post-fs-data
+
+    mkdir /data/media 0770 media_rw media_rw
+
+    setprop vold.post_fs_data_done 1
+
+on boot
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
+    mkdir /data/peers 0700 root system
+    mount tmpfs tmpfs /data/peers mode=0700,gid=1000
+    chown radio radio /data/peers
+
+    chmod 777 /dev/mtd/mtd1
+
+    chmod 777 /dev/HisiGE
+    chmod 777 /dev/graphics/fb0
+    chmod 777 /dev/galcore
+    chmod 777 /dev/graphics/galcore
+
+    chown system system /sys/class/leds/lcd_backlight0/brightness
+    chmod 664 /sys/class/leds/lcd_backlight0/brightness
+
+    chown system system /sys/class/leds/red/delay_on
+    chown system system /sys/class/leds/red/delay_off
+    chown system system /sys/class/leds/green/delay_on
+    chown system system /sys/class/leds/green/delay_off
+    chown system system /sys/class/leds/blue/delay_on
+    chown system system /sys/class/leds/blue/delay_off        
+
+    chown system system sys/devices/sensor00/fn01/wakeup_threshold
+    chown system system sys/devices/sensor00/fn01/nosleep
+    chown system system sys/devices/sensor00/fn01/allow_doze
+    chown system system sys/devices/sensor00/fn01/reportrate
+    chown system system sys/devices/sensor00/fn01/interrupt_enable
+    chown system system sys/devices/sensor00/fn01/chargerinput
+    chown system system sys/devices/sensor00/fn01/reset
+    chown system system sys/devices/sensor00/fn01/sleepmode
+    chown system system sys/devices/sensor00/fn01/doze_holdoff
+    chown system system sys/devices/sensor00/fn11/flip
+    chown system system sys/devices/sensor00/fn11/clip
+    chown system system sys/devices/sensor00/fn11/rezeroWait
+    chown system system sys/devices/sensor00/fn11/rezeroOnResume
+    chown system system sys/devices/sensor00/fn11/rezero
+    chown system system sys/devices/sensor00/fn11/relreport
+    chown system system sys/devices/sensor00/fn11/swap
+    chown system system sys/devices/sensor00/fn11/offset
+    chown system system sys/devices/sensor00/fn11/abs_pos_filt
+    chown system system sys/devices/sensor00/fn34/status
+    chown system system sys/devices/sensor00/fn34/cmd
+    chown system system sys/devices/sensor00/fn34/rescanPDT
+    chown system system sys/devices/sensor00/fn34/bootloaderid
+    chown system system sys/devices/sensor00/fn34/data
+    chown system system sys/devices/sensor00/fn34/blocknum
+    chown system system sys/devices/sensor00/enabled
+    
+    chown system system sys/devices/virtual/mhl/siI-8240/rcp_keycode
+    chown system system sys/devices/virtual/mhl/siI-8240/rcp_ack
+    chown system system sys/devices/virtual/mhl/siI-8240/devcap
+
+    chown system system sys/class/torch/torch_led/lightness   
+     
+    mkdir /data/sensor/
+    chmod 777 /data/sensor/
+    
+    mkdir /data/k3_camera/
+    chmod 777 /data/k3_camera/
+
+    chmod 777 /dev/hiif_misc
+    chmod 777 /dev/android_usb_enable
+
+    chmod 777 /dev/k3_batterymisc
+    chmod 777 /dev/spi3_hisipmu
+
+    #add for audio tool
+    chmod 777 /dev/spi3_misc
+    chmod 777 /system/bin/audioRegctl
+    chmod 777 /proc/audioChannel/status
+
+    chmod 777 /proc/HiAcoustic/control
+    chmod 777 /proc/HiAcoustic/threshold
+
+    mkdir /data/gnss
+    mkdir /data/gnss/logs
+    mkdir /data/gnss/nvs
+    mkdir /data/gnss/RXN
+    mkdir /data/gnss/RXN/RXN
+    mkdir /data/gnss/log_MD
+		
+    chmod 777 /data/spminterfacelog.txt
+    chmod 777 /data/suplclientlog.txt
+    rm /data/spminterfacelog.txt
+    rm /data/suplclientlog.txt
+    exec /system/bin/rm -r /data/gnss/logs
+
+    chmod 777 /data/gnss
+    chmod 777 /data/gnss/logs
+    chmod 777 /data/gnss/nvs
+    chmod 777 /data/gnss/RXN
+    chmod 777 /data/gnss/log_MD
+
+#*
+    insmod /system/lib/modules/compat.ko
+    insmod /system/lib/modules/cfg80211.ko
+    insmod /system/lib/modules/mac80211.ko disable_scan_while_active=0
+    insmod /system/lib/modules/wlcore.ko fwlog="dbgpins"
+    insmod /system/lib/modules/wl18xx.ko
+
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
+    chown wifi wifi /data/misc/wifi
+    chmod 0660 /data/misc/wifi/hostapd.conf
+    chmod 0660 /data/misc/wifi/wpa_supplicant.conf
+    chmod 0660 /data/misc/wifi/p2p_supplicant.conf
+    chown wifi wifi /data/misc/wifi/wpa_supplicant.conf
+    chown wifi wifi /data/misc/wifi/p2p_supplicant.conf
+    chown wifi wifi /data/misc/wifi/hostapd.conf
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    mkdir /var
+    mkdir /var/run/
+    
+    chown wifi wifi /data/misc/wifi
+    chmod 0660 /data/misc/wifi/wpa_supplicant.conf
+    chmod 0660 /data/misc/wifi/hostapd.conf
+    chmod 0660 /data/misc/wifi/p2p_supplicant.conf
+    chown wifi wifi /data/misc/wifi/wpa_supplicant.conf
+    chown wifi wifi /data/misc/wifi/p2p_supplicant.conf
+    chown wifi wifi /data/misc/wifi/hostapd.conf
+    chown dhcp dhcp /data/misc/dhcp
+    mkdir /var
+    mkdir /var/run/
+    chown dhcp dhcp /var/run/
+    setprop wifi.interface wlan0
+    setprop ap.interface wlan1
+
+
+    setprop ro.audio.analogMIC 1
+    setprop ro.audio.dobuleMIC 1
+    setprop ro.opengles.version 131072
+
+    chmod 777 /dev/video0
+    chmod 777 /dev/hx170dec
+    chmod 777 /dev/hx280enc
+    chmod 777 /dev/memalloc
+    chmod 777 /dev/gralloc_pmem
+    chmod 777 /dev/camera_pmem
+
+    chmod 777 /dev/overlay_pmem
+
+    chmod 777 /dev/k3v2-seceng
+
+    chmod 666 /dev/akm8975_aot
+    chmod 666 /dev/akm8975_dev
+    chmod 664 /dev/input/event0
+    chmod 664 /dev/input/event1
+    chmod 664 /dev/input/event2
+    chmod 664 /dev/input/event3
+    chmod 664 /dev/input/event4
+    chmod 664 /dev/input/event5
+    chmod 664 /dev/input/event6
+    chmod 664 /dev/input/event7
+    chmod 664 /dev/input/event8
+    chmod 664 /dev/input/event9
+    chmod 664 /dev/input/event10
+
+    chmod 777 /dev/video19
+
+    write /proc/sys/net/ipv4/tcp_congestion_control mw3
+
+    chmod 777 /dev/audience_es305
+    chmod 777 /dev/tpa2028_l
+    chmod 777 /dev/tpa2028_r
+    chmod 777 /dev/tpa6132
+    chmod 777 /dev/spk_5vboost
+    chmod 777 /dev/boardid_dev
+    chmod 777 /dev/ttyAMA2
+    chmod 777 /dev/modemctl
+    chmod 666 /dev/tfa9887
+
+    chmod 777 /system/usr/keychars/h2w_headset.kcm.bin
+    chmod 777 /system/usr/keychars/k3_keypad.kcm.bin
+    chmod 777 /system/usr/keychars/qwerty2.kcm.bin
+    chmod 777 /system/usr/keychars/qwerty.kcm.bin
+
+    chmod 777 /dev/rtc0
+    chmod 777 /dev/drv2605
+
+    chmod 777 /dev/ttyAMA3
+    chmod 777 /data/gps/log
+
+
+    mkdir /data/dumplog
+    chmod 777 /data/dumplog
+
+    mkdir /cache/recovery
+    chmod 777 /cache/recovery
+
+    chmod 777 /dev/cpu_maxprofile
+    chmod 777 /dev/cpu_minprofile
+    chmod 777 /dev/cpu_profile_block
+    chmod 777 /dev/cpu_profile_safe
+    chmod 777 /dev/gpu_maxprofile
+    chmod 777 /dev/gpu_minprofile
+    chmod 777 /dev/gpu_profile_block
+    chmod 777 /dev/gpu_profile_safe
+    chmod 777 /dev/ddr_maxprofile
+    chmod 777 /dev/ddr_minprofile
+    chmod 777 /dev/ddr_profile_block
+    chmod 777 /dev/ddr_profile_safe
+    chmod 777 /dev/cpu_number_lock
+    chmod 777 /dev/cpu_number_safe
+    chmod 777 /dev/cpu_number_max
+    chmod 777 /dev/cpu_number_min
+    chmod 777 /dev/ipps_policy
+
+    chmod 777 /dev/ttyAMA4
+    chown bluetooth bluetooth /dev/ttyAMA4
+
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chmod 0774 /sys/class/rfkill/rfkill0/state
+
+    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
+    chmod 777 /proc/bluetooth/sleep/proto
+
+    chown bluetooth bluetooth /proc/bluetooth/sleep/btwrite
+    chmod 666 /proc/bluetooth/sleep/btwrite
+
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0018/enable
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0018/pollrate_ms
+
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-001e/enable
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-001e/pollrate_ms
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-001e/accl_data
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-001d/enable
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-001d/pollrate_ms
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-001d/accl_data
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-001e/calibrate
+    chown system system /sys/bus/i2c/devices/0-001e/calibrate
+
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-001c/enable
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-001c/pollrate_ms
+
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0053/enable
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0053/pollrate_ms
+
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0068/enable_device
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0068/pollrate_ms
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0068/enable_selftest
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0068/range
+
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0039/ps_enable
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0039/enable_ps_sensor
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0039/enable_als_sensor
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0039/als_poll_delay
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0039/pdata_value
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0039/cdata_value
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0039/rdata_value
+
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-006a/enable_device
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-006a/pollrate_ms
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-006a/enable_selftest
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-006a/range
+    chown system system /sys/bus/i2c/devices/0-006b/enable_device
+    chown system system /sys/bus/i2c/devices/0-006b/pollrate_ms
+    chown system system /sys/bus/i2c/devices/0-006b/enable_selftest
+    chown system system /sys/bus/i2c/devices/0-006b/range
+
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0010/als_rgb_value
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0010/enable_als_sensor
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0010/als_poll_delay
+    chown system system /sys/devices/platform/dw-i2c.0/i2c-0/0-0010/als_color_value
+
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_policy
+    chown system system /sys/devices/platform/k3_dev_lcd/cabc_mode
+
+    chown system system /sys/devices/platform/k3_fb.196609/frc_state
+
+    chown system system /sys/devices/platform/k3_fb.196609/sbl_lsensor_state
+
+    chmod 0660 /sys/bus/i2c/devices/1-006b/enable_charger
+    chown system system /sys/bus/i2c/devices/1-006b/enable_charger
+    chmod 0660 /sys/bus/i2c/devices/1-006b/calling_limit
+    chown system system /sys/bus/i2c/devices/1-006b/calling_limit
+    chmod 0660 /sys/bus/i2c/devices/1-006b/enable_cd
+    chown system system /sys/bus/i2c/devices/1-006b/enable_cd
+    chmod 0660 /sys/bus/i2c/devices/1-0055/state
+    chown system system /sys/bus/i2c/devices/1-0055/state
+    chmod 0660 /sys/bus/i2c/devices/1-006b/limit_charging
+    chown system system /sys/bus/i2c/devices/1-006b/limit_charging
+    chmod 0660 /sys/bus/i2c/devices/1-006b/coldhot_charging
+    chown system system /sys/bus/i2c/devices/1-006b/coldhot_charging
+
+    chmod 0660 /sys/bus/i2c/devices/1-006b/cin_limit
+    chown system system /sys/bus/i2c/devices/1-006b/cin_limit
+
+    chown system system /sys/devices/platform/huawei_sensor/acc_input
+    chown system system /sys/devices/platform/huawei_sensor/akm_input
+    chown system system /sys/devices/platform/huawei_sensor/als_input
+    chown system system /sys/devices/platform/huawei_sensor/gyro_input
+    chown system system /sys/devices/platform/huawei_sensor/ps_input
+    chown system system /sys/devices/platform/huawei_sensor/ori_input
+    chown system system /sys/devices/platform/huawei_sensor/acc_info
+    chown system system /sys/devices/platform/huawei_sensor/akm_info
+    chown system system /sys/devices/platform/huawei_sensor/als_info
+    chown system system /sys/devices/platform/huawei_sensor/gyro_info
+    chown system system /sys/devices/platform/huawei_sensor/ps_info
+    chown system system /sys/devices/platform/huawei_sensor/akm_selfTest
+    chown system system /sys/devices/platform/huawei_sensor/gyro_selfTest
+    chown system system /sys/devices/platform/huawei_sensor/gyro_exist
+
+    mkdir /data/share 0775 sdcard_rw sdcard_rw
+    chown sdcard_rw sdcard_rw /data/share
+
+    chown system system /sys/devices/platform/k3_hdmi.0/edid
+    chown system system /sys/devices/platform/k3_hdmi.0/code
+    chown system system /sys/devices/platform/k3_hdmi.0/s3d
+    chown system system /sys/devices/platform/k3_hdmi.0/dst
+    chown system system /sys/devices/platform/k3_hdmi.0/hpd
+    chown system system /sys/devices/platform/k3_hdmi.0/hdcp
+    chown system system /sys/devices/platform/k3_hdmi.0/deepcolor
+    chown system system /sys/devices/platform/k3_hdmi.0/reset
+    chown system system /sys/devices/platform/k3_hdmi.0/reg
+    chown system system /sys/devices/platform/k3_hdmi.0/connected
+    chown system system /sys/devices/platform/k3_hdmi.0/s3dsupport
+    chown system system /sys/devices/platform/k3_hdmi.0/alledid
+    chown system system /sys/devices/platform/k3_hdmi.0/audiosupport
+    chown media system /sys/devices/platform/k3_hdmi.0/bufisfree
+    chmod 0660 /sys/devices/platform/xmm_power/cp_shutdown
+    chown radio radio /sys/devices/platform/xmm_power/cp_shutdown
+
+    chown system system /sys/bus/i2c/devices/3-004d/irda_mmi_test
+    chmod 0664 /sys/bus/i2c/devices/3-004d/irda_mmi_test
+    chmod 0660 /sys/devices/platform/xmm_power/cp_shutdown
+    chown radio radio /sys/devices/platform/xmm_power/cp_shutdown
+    chown system system /sys/module/n_gsm_qsc/parameters/debug
+    chown system system /sys/module/n_gsm_mtk/parameters/debug
+
+service sdcard /system/bin/sdcard /data/share /mnt/shell/emulated/ 1015 1015
+    class main
+
+service dhcpcd_wlan0 /system/bin/dhcpcd -ABKLG
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_p2p /system/bin/dhcpcd -aABKL
+    class main
+    disabled
+    oneshot
+
+service dhcpcd_bnep0 /system/bin/dhcpcd -ABKL
+    class main
+    disabled
+    oneshot
+
+service iprenew_wlan0 /system/bin/dhcpcd -nG
+    class main
+    disabled
+    oneshot
+
+service iprenew_p2p /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service iprenew_bnep0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -dd
+    class main
+    user root
+    socket wpa_wlan0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
+service p2p_supplicant /system/bin/wpa_supplicant -c/data/misc/wifi/wpa_supplicant.conf -Dnl80211 -iwlan0 -N -c/data/misc/wifi/p2p_supplicant.conf -Dnl80211 -ip2p0 -dd 
+    class main
+    user root
+    socket wpa_wlan0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
+service hostapd_bin /system/bin/hostapd -d /data/misc/wifi/hostapd.conf
+        socket wpa_wlan1 dgram 660 wifi wifi
+        class main
+        disabled
+        oneshot
+
+#*
+service sdcard /system/bin/sdcard /data/media /mnt/shell/emulated 1023 1023
+    class late_start
+
+service pppd_gprs1 /system/bin/pppd call gprs1
+   user root
+   group radio cache inet misc
+   disabled
+   oneshot
+
+service pppd_gprs2 /system/bin/pppd call gprs2
+   user root
+   group radio cache inet misc
+   disabled
+   oneshot
+
+service pppd_gprs3 /system/bin/pppd call gprs3
+   user root
+   group radio cache inet misc
+   disabled
+   oneshot
+
+service rillogcat /system/bin/logcat -b radio -v time -r 4096 -n 20 -f /data/android_logs/rillogcat-log
+    class logcat
+    user root
+    group system
+    disabled
+
+service chargelogcat /system/bin/chargelogcat -t 2 -p /data/android_logs/
+    class core
+    user root
+    group system
+    disabled
+
+service uim /system/bin/uim-sysfs
+        class core
+        user root
+        group bluetooth net_bt_admin
+
+service gpsd  /system/bin/glgps -c /system/etc/gpsconfig.xml
+    socket gps seqpacket 777 root root
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:ro.runmode=normal
+    start gpsd
+
+service akm8975 /system/bin/akm8975 -m 3
+    class main
+    user system
+    disabled
+    oneshot
+
+# TI-GPS start
+service devproxy /system/bin/devproxy
+        class main
+        disabled
+        oneshot
+        user root
+        group root
+
+service agnss_connect /system/bin/agnss_connect -p
+        class main
+        disabled
+        oneshot
+        user root
+        group root
+
+service RXN_IntApp /system/bin/RXN_IntApp /system/etc/gnss/RXN/MSLConfig.txt
+        oneshot
+        user root
+        group root
+
+service cplc_main /system/bin/cplc_main XML
+        disabled
+        oneshot
+
+service supl20clientd /system/bin/supl20clientd
+        class main
+        oneshot
+
+service Log_MD /system/bin/Log_MD
+	disabled
+	oneshot
+
+service mw3 /system/bin/mw3.bin
+	class main
+	user root
+	group root
+	oneshot
+
+on property:sys.proximitysensor.state=0
+    write /sys/devices/platform/dw-i2c.0/i2c-0/0-0039/ps_enable 0
+
+on property:sys.proximitysensor.state=1
+    write /sys/devices/platform/dw-i2c.0/i2c-0/0-0039/ps_enable 1
+
+
+service acceleratord /system/xbin/acceleratord
+  class main
+  user root
+  group root
+  disabled
+
+on property:ro.config.hw_acceleratord_onoff=1
+  start acceleratord
