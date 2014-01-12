@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">高级设置</string>
+    <string name="category_storage">存储</string>
+    <string name="reboot_summary">需要重新启动才能生效</string>
+    <string name="storage_switch_title">使用外置存储</string>
+    <string name="storage_switch_summary_off">将应用与媒体储存到扩展内部存储</string>
+    <string name="storage_switch_summary_on">将应用与媒体储存到 SD 卡</string>
+    <string name="storage_switch_unavailable">此设备没有扩展内部存储</string>
+    <string name="reboot_prompt_title">需要重新启动</string>
+    <string name="reboot_prompt_message">做出的更改需要重启后才能够生效。\n\n您想要现在重启吗？</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+</resources>

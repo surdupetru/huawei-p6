@@ -1,24 +1,18 @@
-
 on init
-
+    write /sys/class/android_usb/android0/iSerial $ro.serialno
+    write /sys/class/android_usb/android0/f_rndis/manufacturer HUAWEI
+    write /sys/class/android_usb/android0/f_rndis/vendorID 12d1
+    write /sys/class/android_usb/android0/idProduct D101
     write /sys/class/android_usb/android0/f_rndis/wceis 1
 
 on boot
+    write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
+    write /sys/class/android_usb/android0/iProduct $ro.product.model
+
 on property:sys.usb.config=none
-    stop hw_modem_service
-    stop hw_pcui_service
     stop adbd
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/bDeviceClass 0
-    setprop sys.usb.state $sys.usb.config
-
-on property:sys.usb.config=adb
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 12d1
-    write /sys/class/android_usb/android0/idProduct 103A
-    write /sys/class/android_usb/android0/functions $sys.usb.config
-    write /sys/class/android_usb/android0/enable 1
-    start adbd
     setprop sys.usb.state $sys.usb.config
 
 on property:sys.usb.config=mtp
@@ -175,10 +169,7 @@ on property:sys.usb.config=modem,nmea,mass_storage,adb,diag,default_mode
     write /sys/class/android_usb/f_mass_storage/lun/file none
     write /sys/class/android_usb/android0/functions modem,nmea,mass_storage,adb,diag
     write /sys/class/android_usb/android0/enable 1
-    stop hw_modem_service
-    stop hw_pcui_service
     start adbd
-    start atcmdserver
     setprop sys.usb.state $sys.usb.config
 
 on property:sys.usb.config=modem,nmea,mass_storage,adb,diag
@@ -190,10 +181,7 @@ on property:sys.usb.config=modem,nmea,mass_storage,adb,diag
     write /sys/class/android_usb/f_mass_storage/lun/file none
     write /sys/class/android_usb/android0/functions $sys.usb.config
     write /sys/class/android_usb/android0/enable 1
-    stop hw_modem_service
-    stop hw_pcui_service
     start adbd
-    start atcmdserver
     setprop sys.usb.state $sys.usb.config
 
 on property:sys.usb.config=pcmodem1
@@ -216,9 +204,6 @@ on property:sys.usb.config=pcmodem2
     write /sys/class/android_usb/f_mass_storage/lun/file /data/cust/pcmodem/autorun.iso
     write /sys/class/android_usb/android0/functions modem,nmea,mass_storage
     write /sys/class/android_usb/android0/enable 1
-    stop atcmdserver
-    start hw_modem_service
-    start hw_pcui_service
     setprop sys.usb.state $sys.usb.config
 
 on property:sys.usb.config=pcmodem2,adb
@@ -231,9 +216,6 @@ on property:sys.usb.config=pcmodem2,adb
     write /sys/class/android_usb/android0/functions modem,nmea,mass_storage,adb,diag
     write /sys/class/android_usb/android0/enable 1
     start adbd
-    stop atcmdserver
-    start hw_modem_service
-    start hw_pcui_service
     setprop sys.usb.state $sys.usb.config
 
 on property:persist.sys.usb.config=*

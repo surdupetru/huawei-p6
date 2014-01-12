@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Advanced settings</string>
+    <string name="category_storage">Storage</string>
+    <string name="reboot_summary">Requires reboot to take affect</string>
+    <string name="storage_switch_title">Use external storage</string>
+    <string name="storage_switch_summary_off">Using expanded internal storage for apps and media</string>
+    <string name="storage_switch_summary_on">Using SD Card for apps and media</string>
+    <string name="storage_switch_unavailable">This device doesn\'t have expanded internal storage</string>
+    <string name="cpu_settings_title">CPU Settings</string>
+    <string name="cpu_mode_title">CPU Mode Switch</string>
+    <string name="cpu_settings_summary">Change CPU Power Mode</string>
+    <string name="cpu_pwrsv">Power Save Mode -> 1.0GHz</string>
+    <string name="cpu_bal">Balanced Mode -> 1.2GHz</string>
+    <string name="cpu_pref">Performance Mode -> 1.5GHz</string>
+    <string name="reboot_prompt_title">Reboot required</string>
+    <string name="reboot_prompt_message">In order to apply the changed configuration, a reboot is required.\n\nDo you want to reboot now?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>

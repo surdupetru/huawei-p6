@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+           xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Pokročilé nastavení</string>
+    <string name="category_storage">Úložiště</string>
+    <string name="reboot_summary">Pro aktivaci změn je potřeba restart zařízení</string>
+    <string name="storage_switch_title">Použít externí úložiště</string>
+    <string name="storage_switch_summary_off">Pro aplikace a média použít rozšířené interní úložiště</string>
+    <string name="storage_switch_summary_on">Pro aplikace a média použít externí (SD) kartu</string>
+    <string name="storage_switch_unavailable">Toto zařízení nemá rozšířené interní úložiště</string>
+    <string name="reboot_prompt_title">Restart zařízení vyžadován</string>
+    <string name="reboot_prompt_message">Aby se aktivovaly změny nastavení, je vyžadován restart zařízení.\n\nChcete provést restart zařízení nyní?</string>
+    <string name="yes">Ano</string>
+    <string name="no">Ne</string>
+</resources>

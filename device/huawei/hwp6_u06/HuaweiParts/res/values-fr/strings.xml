@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Paramètres avancés</string>
+    <string name="category_storage">Stockage</string>
+    <string name="reboot_summary">Nécessite un redémarrage pour prendre effet</string>
+    <string name="storage_switch_title">Utilliser le stockage externe</string>
+    <string name="storage_switch_summary_off">Utiliser l\'extension de mémoire interne pour les applications et les médias</string>
+    <string name="storage_switch_summary_on">Utiliser la carte SD pour les applications et les médias</string>
+    <string name="storage_switch_unavailable">Cette appareil n\'a pas d\'extension de stockage interne</string>
+    <string name="reboot_prompt_title">Redémarrage nécessaire</string>
+    <string name="reboot_prompt_message">Pour appliquer les changements de configuration, un redémarrage est nécessaire.\n\nVoulez-vous redémarrer maintenant\u00A0?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+</resources>

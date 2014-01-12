@@ -71,10 +71,7 @@ TARGET_KERNEL_CONFIG := cm_k3v2oem1_defconfig
 # adb has root
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
-ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.usb.config=modem,nmea,mass_storage,diag,default_mode
-ADDITIONAL_DEFAULT_PROPERTIES += persist.rilrecovery.qsc6085.en=true
-
-ADDITIONAL_DEFAULT_PROPERTIES += ro.confg.hw_bootversion=P6-U06V100R001C17B118_BOOT
+ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.usb.config=mass_storage
 
 # Graphics
 BOARD_EGL_CFG := device/huawei/hwp6_u06/prebuilt/lib/egl/egl.cfg

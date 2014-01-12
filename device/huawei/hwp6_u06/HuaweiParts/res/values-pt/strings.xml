@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Configurações avançadas</string>
+    <string name="category_storage">Armazenamento</string>
+    <string name="reboot_summary">Requer inicialização para ter efeito</string>
+    <string name="storage_switch_title">Usar armazenamento externo</string>
+    <string name="storage_switch_summary_off">Usando armazenamento interno expandido para apps e mídia</string>
+    <string name="storage_switch_summary_on">Usando SD-Card para apps e mídia</string>
+    <string name="storage_switch_unavailable">Não disponível</string>
+    <string name="reboot_prompt_title">Necessário Reiniciar</string>
+    <string name="reboot_prompt_message">Para aplicar as alterações de configuração, é necessário reiniciar.\n\nVocê deseja reiniciar agora?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+</resources>

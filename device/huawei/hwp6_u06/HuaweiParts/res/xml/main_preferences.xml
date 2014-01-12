@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/app_name">
+
+    <PreferenceCategory
+    android:title="@string/category_storage"
+    android:summary="@string/reboot_summary"
+    android:layout="@layout/preference_category_summary">
+    <CheckBoxPreference
+        android:key="key_switch_storage"
+        android:title="@string/storage_switch_title"
+        android:summaryOn="@string/storage_switch_summary_on"
+        android:summaryOff="@string/storage_switch_summary_off" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+    android:title="@string/cpu_settings_title" >
+    <ListPreference
+        android:key="cpu_settings"
+        android:title="@string/cpu_mode_title"
+        android:summary="@string/cpu_settings_summary"
+        android:entries="@array/cpu_settings_array"
+        android:entryValues="@array/cpu_settings_array_values" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

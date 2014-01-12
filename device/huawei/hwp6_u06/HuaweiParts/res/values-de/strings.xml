@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Erweitert Einstellungen</string>
+    <string name="category_storage">Speicher</string>
+    <string name="storage_switch_title">Benutze externen Speicher</string>
+    <string name="storage_switch_summary_off">Benutze internen Speicher für Apps und Medien</string>
+    <string name="storage_switch_summary_on">Benutze Speicherkarte für Apps und Medien</string>
+    <string name="storage_switch_unavailable">Dieses Gerät besitzt keinen erweiterten internen Speicher</string>
+    <string name="reboot_prompt_title">Neustart nötig</string>
+    <string name="reboot_prompt_message">Um die geänderten Einstellungen anzuwenden, muss das Telefon neu gestartet werden.\n\nMöchten Sie jetzt neu starten?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+</resources>

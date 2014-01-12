@@ -386,6 +386,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.manufacturer=HUAWEI\
     ro.product.model=P6-U06
 
+# Advanced Settings for Huawei
+PRODUCT_PACKAGES += HuaweiParts
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -432,6 +434,8 @@ PRODUCT_PROPERTY_OVERRIDES := \
 
 # OpenGL ES
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1 \
+    persist.sys.usb.config=mtp,adb \
     ro.opengles.version=131072
 
 $(call inherit-product, build/target/product/full.mk)

@@ -1,0 +1,15 @@
+<resources>
+
+    <string-array name="cpu_settings_array">
+        <item>@string/cpu_pwrsv</item>
+        <item>@string/cpu_bal</item>
+        <item>@string/cpu_pref</item>
+    </string-array>
+
+    <string-array name="cpu_settings_array_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+</resources>
