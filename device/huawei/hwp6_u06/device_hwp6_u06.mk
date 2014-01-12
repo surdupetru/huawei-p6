@@ -434,7 +434,7 @@ PRODUCT_PROPERTY_OVERRIDES := \
 
 # OpenGL ES
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vold.switchablepair=/storage/sdcard0,/storage/sdcard1 \
+    ro.vold.switchablepair=/storage/emulated/0,/mnt/ext_sdcard \
     persist.sys.usb.config=mtp,adb \
     ro.opengles.version=131072
 

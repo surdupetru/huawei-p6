@@ -29,11 +29,6 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.util.Log;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
-
 
 public class DeviceSettings extends PreferenceActivity implements
         OnPreferenceChangeListener {
@@ -66,7 +61,7 @@ public class DeviceSettings extends PreferenceActivity implements
         mSwitchStoragePref = (CheckBoxPreference) getPreferenceScreen().findPreference(
             KEY_SWITCH_STORAGE);
         mSwitchStoragePref.setChecked((SystemProperties.getInt(
-                "persist.sys.primarysd", 0) == 1));
+                "persist.sys.vold.switchexternal", 0) == 1));
         mSwitchStoragePref.setOnPreferenceChangeListener(this);
 
         if (SystemProperties.get("ro.vold.switchablepair","").equals("")) {
@@ -85,6 +80,7 @@ public class DeviceSettings extends PreferenceActivity implements
         }
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
         if (preference == mCpuMode) {
@@ -95,7 +91,7 @@ public class DeviceSettings extends PreferenceActivity implements
         if(preference == mSwitchStoragePref) {
             Log.d(TAG,"Setting persist.sys.vold.switchexternal to "+(
                     mSwitchStoragePref.isChecked() ? "1" : "0"));
-            SystemProperties.set("persist.sys.primarysd", (
+            SystemProperties.set("persist.sys.vold.switchexternal", (
                     (Boolean) newValue) ? "1" : "0");
             showRebootPrompt();
         }

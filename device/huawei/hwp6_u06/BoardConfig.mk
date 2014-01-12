@@ -1,6 +1,6 @@
 BOARD_VENDOR := Huawei
 
-USE_CAMERA_STUB := false
+USE_CAMERA_STUB := true
 
 # Audio
 TARGET_PROVIDES_LIBAUDIO := true
