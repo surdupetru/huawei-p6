@@ -96,6 +96,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/lib/lib_k3_omx_rv.so:system/lib/lib_k3_omx_rv.so \
     $(PATH_FILES)/lib/lib_k3_omx_vc1.so:system/lib/lib_k3_omx_vc1.so \
     $(PATH_FILES)/lib/lib_k3_omx_vp8.so:system/lib/lib_k3_omx_vp8.so \
+    $(PATH_FILES)/lib/libllxml.so:system/lib/libllxml.so \
     $(PATH_FILES)/lib/libmedia.so:system/lib/libmedia.so \
     $(PATH_FILES)/lib/libMirrorAudioService.so:system/lib/libMirrorAudioService.so \
     $(PATH_FILES)/lib/libmirror_media.so:system/lib/libmirror_media.so \
