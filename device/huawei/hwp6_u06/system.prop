@@ -8,7 +8,5 @@ rild.cfgfile=/system/etc/ril_xgold_radio.cfg
 audioril.lib=libhuawei-audio-ril.so
 ro.ril.ecclist=112,911,#911,*911
 
-dalvik.vm.dexopt-data-only=1
-
 ro.sf.lcd_density=320
 hw.lcd.density=320
