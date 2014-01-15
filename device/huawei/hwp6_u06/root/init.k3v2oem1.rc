@@ -527,3 +527,9 @@ service acceleratord /system/xbin/acceleratord
 
 on property:ro.config.hw_acceleratord_onoff=1
   start acceleratord
+
+on property:persist.sys.vold.switchexternal=1
+    setprop persist.sys.primarysd 1
+
+on property:persist.sys.vold.switchexternal=0
+    setprop persist.sys.primarysd 0

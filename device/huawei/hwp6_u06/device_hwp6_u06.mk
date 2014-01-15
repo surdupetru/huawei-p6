@@ -432,10 +432,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.ril.hsxpa=2
 
+# Enable switch storage 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/init.d/preparesd:/system/etc/init.d/preparesd
+
 # OpenGL ES
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.hw_acceleratord_onoff=1 \
-    ro.vold.switchablepair=/storage/emulated/0,/mnt/ext_sdcard \
+    ro.vold.switchablepair=yes \
     persist.sys.usb.config=mtp,adb \
     ro.opengles.version=131072
 
