@@ -38,6 +38,8 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/vendor/firmware/fmc_ch8_1893.3.bts:system/vendor/firmware/fmc_ch8_1893.3.bts \
     $(PATH_FILES)/vendor/firmware/fm_rx_ch8_1893.3.bts:system/vendor/firmware/fm_rx_ch8_1893.3.bts \
     $(PATH_FILES)/vendor/firmware/TIInit_12.8.32.bts:system/vendor/firmware/TIInit_12.8.32.bts \
+    $(PATH_FILES)/lib/hw/audio.a2dp.default.so:system/lib/hw/audio.a2dp.default.so \
+    $(PATH_FILES)/lib/hw/bluetooth.default.so:system/lib/hw/bluetooth.default.so \
     $(PATH_FILES)/lib/hw/camera.k3v2oem1.so:system/lib/hw/camera.k3v2oem1.so \
     $(PATH_FILES)/lib/hw/copybit.k3v2oem1.so:system/lib/hw/copybit.k3v2oem1.so \
     $(PATH_FILES)/lib/hw/gps.k3v2oem1.so:system/lib/hw/gps.k3v2oem1.so \
@@ -69,6 +71,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/lib/libaudio-resampler.so:system/lib/libaudio-resampler.so \
     $(PATH_FILES)/lib/libbalong-ril.so:system/lib/libbalong-ril.so \
     $(PATH_FILES)/lib/libBMapApiEngine_v1_3_5.so:system/lib/libBMapApiEngine_v1_3_5.so \
+    $(PATH_FILES)/lib/libcamera_client.so:system/lib/libcamera_client.so \
     $(PATH_FILES)/lib/libcamera_core.so:system/lib/libcamera_core.so \
     $(PATH_FILES)/lib/libcamera_scalado.so:system/lib/libcamera_scalado.so \
     $(PATH_FILES)/lib/libclientlogger.so:system/lib/libclientlogger.so \
@@ -111,6 +114,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/lib/libscremoteevtmgr.so:system/lib/libscremoteevtmgr.so \
     $(PATH_FILES)/lib/libscremotell.so:system/lib/libscremotell.so \
     $(PATH_FILES)/lib/libscremoteprotocol.so:system/lib/libscremoteprotocol.so \
+    $(PATH_FILES)/lib/libskia.so:system/lib/libskia.so \
     $(PATH_FILES)/lib/libsprd-ril.so:system/lib/libsprd-ril.so \
     $(PATH_FILES)/lib/libstagefrighthw.so:system/lib/libstagefrighthw.so \
     $(PATH_FILES)/lib/libstagefright_wfd.so:system/lib/libstagefright_wfd.so \
