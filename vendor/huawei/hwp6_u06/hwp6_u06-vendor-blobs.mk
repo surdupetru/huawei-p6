@@ -85,6 +85,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/lib/libgnssutils.so:system/lib/libgnssutils.so \
     $(PATH_FILES)/lib/libgnuexif.so:system/lib/libgnuexif.so \
     $(PATH_FILES)/lib/libgui.so:system/lib/libgui.so \
+    $(PATH_FILES)/lib/libhdr.so:system/lib/libhdr.so \
     $(PATH_FILES)/lib/libhelixplayer.so:system/lib/libhelixplayer.so \
     $(PATH_FILES)/lib/libhuawei-audio-ril.so:system/lib/libhuawei-audio-ril.so \
     $(PATH_FILES)/lib/libimageinfo.so:system/lib/libimageinfo.so \
@@ -145,6 +146,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/bin/devproxy:system/bin/devproxy \
     $(PATH_FILES)/bin/geomagneticd:system/bin/geomagneticd \
     $(PATH_FILES)/bin/glgps:system/bin/glgps \
+    $(PATH_FILES)/bin/hdmi_daemon:system/bin/hdmi_daemon \
     $(PATH_FILES)/bin/hostapd:system/bin/hostapd \
     $(PATH_FILES)/bin/hwd:system/bin/hwd \
     $(PATH_FILES)/bin/hw_modem_service:system/bin/hw_modem_service \
@@ -153,6 +155,7 @@ PRODUCT_COPY_FILES += \
     $(PATH_FILES)/bin/IMCdownload_App:system/bin/IMCdownload_App \
     $(PATH_FILES)/bin/imc_poweron:system/bin/imc_poweron \
     $(PATH_FILES)/bin/Injection_nv:system/bin/Injection_nv \
+    $(PATH_FILES)/bin/k3v2_thermal:system/bin/k3v2_thermal \
     $(PATH_FILES)/bin/Log_MD:system/bin/Log_MD \
     $(PATH_FILES)/bin/MDM_DLOADER:system/bin/MDM_DLOADER \
     $(PATH_FILES)/bin/mediaserver:system/bin/mediaserver \
