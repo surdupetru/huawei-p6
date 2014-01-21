@@ -1014,9 +1014,16 @@ service bootanim /system/bin/bootanimation
     disabled
     oneshot
 
+on property:rild.readytostart=true
+    start ril-daemon1
+
 service installd /system/bin/installd
     class main
     socket installd stream 600 system system
+
+service flash_recovery /system/etc/install-recovery.sh
+    class main
+    oneshot
 
 service racoon /system/bin/racoon
     class main
@@ -1062,6 +1069,7 @@ service mdnsd /system/bin/mdnsd
 service akmd8963  /system/bin/akmd8963
 	class main
 	oneshot
+
 service yamaha_ori /system/bin/orientationd
 	disabled
     oneshot
@@ -1080,17 +1088,6 @@ service hw_modem_service /system/bin/hw_modem_service /dev/ttyGS0 /dev/mux_qsc6
     user root
     disabled
 
-#start catmemleak service if enabled inside kernel by zhangliang z00175161 2013/3/28
-service  catmemleak /system/bin/catmemleak.sh 0
-    class main
-    user root
-    oneshot
-    
 service hwnffserver /system/bin/hwnffserver
     class main
-    socket hwnff stream 0660 root moun
-
-service k3v2_thermal /system/bin/k3v2_thermal
-    class main
-    user system
-    oneshot
+    socket hwnff stream 0660 root mount
