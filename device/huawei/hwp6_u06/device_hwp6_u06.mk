@@ -438,6 +438,8 @@ PRODUCT_COPY_FILES += \
 
 # OpenGL ES
 PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0 \
+    ap.interface=wlan1 \
     ro.config.hw_acceleratord_onoff=1 \
     ro.vold.switchablepair=yes \
     persist.sys.usb.config=mtp,adb \
